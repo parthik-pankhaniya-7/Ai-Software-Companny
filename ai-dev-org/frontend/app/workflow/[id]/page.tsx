@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState, useCallback, useMemo } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import { useParams } from "next/navigation";
 import { useQuery } from "@tanstack/react-query";
 import ReactFlow, {
@@ -17,24 +17,18 @@ import ReactFlow, {
 } from "reactflow";
 import "reactflow/dist/style.css";
 import {
-  Activity,
   ArrowLeft,
   Bot,
   CheckCircle2,
-  Clock,
-  Cpu,
-  Layers,
   Radio,
-  RotateCcw,
   ShieldAlert,
-  Sparkles,
-  Zap,
+  AlertCircle,
 } from "lucide-react";
 import Link from "next/link";
 import { api } from "@/lib/api";
-import { createWebSocketConnection, RealtimeClient } from "@/lib/ws";
+import { connectProject } from "@/lib/ws";
 
-export type AgentNodeStatus = "grey" | "blue" | "green" | "red";
+export type AgentStatus = "idle" | "running" | "completed" | "failed";
 
 export interface AgentCustomNodeData {
   id: string;
@@ -42,11 +36,10 @@ export interface AgentCustomNodeData {
   title: string;
   description: string;
   model: string;
-  status: AgentNodeStatus;
-  statusLabel: string;
-  currentTask?: string;
-  tokens?: number;
-  lastActive?: string;
+  status: AgentStatus;
+  tokens_in?: number;
+  tokens_out?: number;
+  error?: string;
 }
 
 interface ProjectDetail {
@@ -56,60 +49,53 @@ interface ProjectDetail {
   phase: string;
 }
 
-interface WSEventData {
-  type?: string;
-  event?: string;
-  agent?: string;
-  role?: string;
-  task?: string;
-  status?: string;
-  model?: string;
-  tokens?: {
-    total?: number;
-  };
-  usage?: {
-    total_tokens?: number;
-  };
-  timestamp?: string;
-}
-
 /**
  * Custom Agent Node component with dynamic status coloring and handles.
  */
 function AgentCustomNode({ data }: NodeProps<AgentCustomNodeData>) {
   const statusColors = useMemo(() => {
     switch (data.status) {
-      case "blue": // Running
+      case "running":
         return {
           container: "border-blue-500 bg-blue-950/40 shadow-blue-500/20 shadow-lg ring-1 ring-blue-500/50",
           badge: "bg-blue-500/20 text-blue-300 border-blue-500/30",
           iconBg: "bg-blue-500/20 text-blue-400",
+          label: "Running",
           ping: true,
         };
-      case "green": // Completed
+      case "completed":
         return {
           container: "border-emerald-500/80 bg-emerald-950/30 shadow-emerald-500/10 shadow-md ring-1 ring-emerald-500/30",
           badge: "bg-emerald-500/20 text-emerald-300 border-emerald-500/30",
           iconBg: "bg-emerald-500/20 text-emerald-400",
+          label: "Completed",
           ping: false,
         };
-      case "red": // Failed / Retrying
+      case "failed":
         return {
           container: "border-rose-500/80 bg-rose-950/40 shadow-rose-500/20 shadow-md ring-1 ring-rose-500/40",
           badge: "bg-rose-500/20 text-rose-300 border-rose-500/30",
           iconBg: "bg-rose-500/20 text-rose-400",
+          label: "Failed",
           ping: false,
         };
-      case "grey": // Idle / Pending
+      case "idle":
       default:
         return {
           container: "border-border bg-card/90 shadow-sm opacity-85",
           badge: "bg-secondary text-muted-foreground border-border",
           iconBg: "bg-secondary text-muted-foreground",
+          label: "Idle",
           ping: false,
         };
     }
   }, [data.status]);
+
+  const displayedModel = useMemo(() => {
+    if (data.status === "idle") return "—";
+    if (data.status === "running") return "...";
+    return data.model || "—";
+  }, [data.status, data.model]);
 
   return (
     <div
@@ -143,28 +129,34 @@ function AgentCustomNode({ data }: NodeProps<AgentCustomNodeData>) {
           className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-semibold border ${statusColors.badge}`}
         >
           {statusColors.ping && <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-ping" />}
-          {data.status === "green" && <CheckCircle2 className="w-3 h-3" />}
-          {data.status === "red" && <ShieldAlert className="w-3 h-3" />}
-          {data.statusLabel}
+          {data.status === "completed" && <CheckCircle2 className="w-3 h-3" />}
+          {data.status === "failed" && <ShieldAlert className="w-3 h-3" />}
+          {statusColors.label}
         </span>
       </div>
 
-      {/* Current Task */}
+      {/* Description / Task / Error */}
       <div className="mt-2 text-xs bg-background/50 rounded-lg p-2 border border-border/50">
-        <div className="text-[10px] uppercase tracking-wider font-semibold text-muted-foreground mb-0.5">
-          Current Assignment
-        </div>
-        <p className="text-foreground line-clamp-2 leading-relaxed text-[11px]">
-          {data.currentTask || "Idle / Awaiting workflow execution"}
-        </p>
+        {data.error ? (
+          <p className="text-rose-400 text-[11px] line-clamp-2 leading-relaxed flex items-center gap-1">
+            <AlertCircle className="w-3 h-3 shrink-0" />
+            {data.error}
+          </p>
+        ) : (
+          <p className="text-foreground line-clamp-2 leading-relaxed text-[11px]">
+            {data.description}
+          </p>
+        )}
       </div>
 
       {/* Footer Info */}
       <div className="mt-3 pt-2 border-t border-border/40 flex items-center justify-between text-[10px] text-muted-foreground font-mono">
-        <span className="truncate max-w-[150px]">{data.model}</span>
-        {data.tokens !== undefined && data.tokens > 0 && (
-          <span className="text-foreground font-medium">{data.tokens.toLocaleString()} tok</span>
-        )}
+        <span className="truncate max-w-[150px]">{displayedModel}</span>
+        {data.status === "completed" && data.tokens_in !== undefined && data.tokens_out !== undefined ? (
+          <span className="text-foreground font-medium">
+            {data.tokens_in}/{data.tokens_out} tok
+          </span>
+        ) : null}
       </div>
 
       <Handle
@@ -196,10 +188,8 @@ const INITIAL_NODES: Node<AgentCustomNodeData>[] = [
       role: "CTO",
       title: "Chief Technology Officer",
       description: "Architecture & Feasibility Analysis",
-      model: "gemini/gemini-1.5-pro",
-      status: "grey",
-      statusLabel: "Idle",
-      currentTask: "BRD & FRD architectural synthesis",
+      model: "—",
+      status: "idle",
     },
   },
   {
@@ -211,10 +201,8 @@ const INITIAL_NODES: Node<AgentCustomNodeData>[] = [
       role: "PM",
       title: "Product Manager",
       description: "Epics, Tasks, & Milestones",
-      model: "gemini/gemini-1.5-pro",
-      status: "grey",
-      statusLabel: "Idle",
-      currentTask: "Sprint decomposition & criteria",
+      model: "—",
+      status: "idle",
     },
   },
   {
@@ -226,10 +214,8 @@ const INITIAL_NODES: Node<AgentCustomNodeData>[] = [
       role: "Team Lead",
       title: "Engineering Team Lead",
       description: "Technical Design & Routing",
-      model: "gemini/gemini-1.5-pro",
-      status: "grey",
-      statusLabel: "Idle",
-      currentTask: "File mapping & UI requirement flag",
+      model: "—",
+      status: "idle",
     },
   },
   {
@@ -241,10 +227,8 @@ const INITIAL_NODES: Node<AgentCustomNodeData>[] = [
       role: "UI/UX",
       title: "UI/UX Designer",
       description: "Wireframes & Design System",
-      model: "gemini/gemini-1.5-flash",
-      status: "grey",
-      statusLabel: "Idle",
-      currentTask: "Tailwind & shadcn design specifications",
+      model: "—",
+      status: "idle",
     },
   },
   {
@@ -254,12 +238,10 @@ const INITIAL_NODES: Node<AgentCustomNodeData>[] = [
     data: {
       id: "developer",
       role: "Developer",
-      title: "Full-Stack Developer(s)",
+      title: "Full-Stack Developer",
       description: "Code & Test Implementation",
-      model: "gemini/gemini-2.0-flash",
-      status: "grey",
-      statusLabel: "Idle",
-      currentTask: "Multi-file implementation & modules",
+      model: "—",
+      status: "idle",
     },
   },
   {
@@ -271,10 +253,8 @@ const INITIAL_NODES: Node<AgentCustomNodeData>[] = [
       role: "QA",
       title: "QA / QC Engineer",
       description: "Audit & Test Verification",
-      model: "gemini/gemini-2.0-flash",
-      status: "grey",
-      statusLabel: "Idle",
-      currentTask: "Unit/integration suite verification",
+      model: "—",
+      status: "idle",
     },
   },
   {
@@ -286,10 +266,8 @@ const INITIAL_NODES: Node<AgentCustomNodeData>[] = [
       role: "AI Engineer",
       title: "AI Engineer",
       description: "Optimization & Escalations",
-      model: "gemini/gemini-1.5-pro",
-      status: "grey",
-      statusLabel: "Idle",
-      currentTask: "Token budget review & final sign-off",
+      model: "—",
+      status: "idle",
     },
   },
 ];
@@ -384,9 +362,9 @@ export default function WorkflowGraphPage() {
   const projectId = typeof params?.id === "string" ? params.id : Array.isArray(params?.id) ? params.id[0] : "";
 
   const [nodes, setNodes] = useState<Node<AgentCustomNodeData>[]>(INITIAL_NODES);
-  const [edges, setEdges] = useState<Edge[]>(INITIAL_EDGES);
+  const [edges] = useState<Edge[]>(INITIAL_EDGES);
+  const [_status, setStatus] = useState<string>("in_progress");
   const [wsConnected, setWsConnected] = useState<boolean>(false);
-  const [lastEvent, setLastEvent] = useState<string | null>(null);
 
   // Fetch project details
   const { data: project } = useQuery<ProjectDetail>({
@@ -395,101 +373,72 @@ export default function WorkflowGraphPage() {
     enabled: Boolean(projectId),
   });
 
-  // Handle incoming live WebSocket updates
-  const handleWebSocketMessage = useCallback((rawMessage: unknown) => {
+  // Subscribe to live WebSocket events
+  useEffect(() => {
+    if (!projectId) return;
+
     setWsConnected(true);
-    if (!rawMessage || typeof rawMessage !== "object") return;
-
-    const data = rawMessage as WSEventData;
-    const agentKey = (data.agent || data.role || "").toLowerCase().replace(/[^a-z0-9_]/g, "");
-
-    setLastEvent(`${data.type || data.event || "event"} @ ${new Date().toLocaleTimeString()}`);
-
-    if (agentKey) {
-      setNodes((prevNodes) =>
-        prevNodes.map((n) => {
-          if (n.id === agentKey || n.data.id === agentKey) {
-            let nextStatus: AgentNodeStatus = n.data.status;
-            let statusLabel = n.data.statusLabel;
-
-            const s = (data.status || "").toLowerCase();
-            const eventType = (data.type || data.event || "").toLowerCase();
-
-            if (
-              s === "running" ||
-              s === "in_progress" ||
-              s === "active" ||
-              eventType === "agent_start" ||
-              eventType === "node_start"
-            ) {
-              nextStatus = "blue";
-              statusLabel = "Running";
-            } else if (
-              s === "completed" ||
-              s === "ok" ||
-              s === "pass" ||
-              eventType === "agent_finish" ||
-              eventType === "node_finish"
-            ) {
-              nextStatus = "green";
-              statusLabel = "Completed";
-            } else if (
-              s === "failed" ||
-              s === "fail" ||
-              s === "error" ||
-              s === "blocked" ||
-              s === "escalate"
-            ) {
-              nextStatus = "red";
-              statusLabel = "Failed / Retry";
-            }
-
-            const totalTokens =
-              data.tokens?.total ?? data.usage?.total_tokens ?? n.data.tokens;
-
+    const cleanup = connectProject(projectId, (event) => {
+      setNodes((prev) =>
+        prev.map((n) => {
+          if (n.id !== event.agent) return n;
+          if (event.type === "agent_started") {
             return {
               ...n,
               data: {
                 ...n.data,
-                status: nextStatus,
-                statusLabel,
-                currentTask: data.task || n.data.currentTask,
-                model: data.model || n.data.model,
-                tokens: totalTokens,
-                lastActive: data.timestamp || new Date().toLocaleTimeString(),
+                status: "running",
+                model: "...",
+              },
+            };
+          }
+          if (event.type === "agent_completed") {
+            return {
+              ...n,
+              data: {
+                ...n.data,
+                status: "completed",
+                model: event.model || n.data.model,
+                tokens_in: event.tokens_in,
+                tokens_out: event.tokens_out,
+              },
+            };
+          }
+          if (event.type === "agent_failed") {
+            return {
+              ...n,
+              data: {
+                ...n.data,
+                status: "failed",
+                error: event.error,
               },
             };
           }
           return n;
         })
       );
-    }
-  }, []);
 
-  // Subscribe to WebSocket
-  useEffect(() => {
-    if (!projectId) return;
-
-    let wsClient: RealtimeClient | null = null;
-    try {
-      wsClient = createWebSocketConnection(projectId, handleWebSocketMessage);
-      setWsConnected(true);
-    } catch {
-      setWsConnected(false);
-    }
+      if (event.type === "workflow_completed") setStatus("completed");
+      if (event.type === "workflow_failed") setStatus("failed");
+    });
 
     return () => {
-      wsClient?.disconnect();
+      cleanup();
       setWsConnected(false);
     };
-  }, [projectId, handleWebSocketMessage]);
+  }, [projectId]);
 
-  const activeCount = useMemo(
-    () => nodes.filter((n) => n.data.status === "blue").length,
+  // Live node status counters
+  const running = useMemo(
+    () => nodes.filter((n) => n.data.status === "running").length,
     [nodes]
   );
-  const completedCount = useMemo(
-    () => nodes.filter((n) => n.data.status === "green").length,
+  const completed = useMemo(
+    () => nodes.filter((n) => n.data.status === "completed").length,
+    [nodes]
+  );
+  const failed = useMemo(
+    () => nodes.filter((n) => n.data.status === "failed").length,
     [nodes]
   );
 
@@ -529,23 +478,19 @@ export default function WorkflowGraphPage() {
           </div>
         </div>
 
-        {/* Status indicators */}
-        <div className="flex items-center gap-3 text-xs">
-          <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-border bg-card">
-            <span className="w-2 h-2 rounded-full bg-slate-500" />
-            <span className="text-muted-foreground">Idle</span>
-          </div>
+        {/* Live Counters */}
+        <div className="flex items-center gap-3 text-xs font-medium">
           <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-blue-500/30 bg-blue-500/10 text-blue-400">
             <span className="w-2 h-2 rounded-full bg-blue-400 animate-ping" />
-            <span>Running ({activeCount})</span>
+            <span>Running ({running})</span>
           </div>
           <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-emerald-500/30 bg-emerald-500/10 text-emerald-400">
             <CheckCircle2 className="w-3.5 h-3.5" />
-            <span>Completed ({completedCount})</span>
+            <span>Completed ({completed})</span>
           </div>
           <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-rose-500/30 bg-rose-500/10 text-rose-400">
             <ShieldAlert className="w-3.5 h-3.5" />
-            <span>Failed / Retry</span>
+            <span>Failed ({failed})</span>
           </div>
         </div>
       </div>
@@ -572,21 +517,15 @@ export default function WorkflowGraphPage() {
           <MiniMap
             nodeColor={(n) => {
               const d = n.data as AgentCustomNodeData;
-              if (d?.status === "blue") return "#3b82f6";
-              if (d?.status === "green") return "#10b981";
-              if (d?.status === "red") return "#f43f5e";
+              if (d?.status === "running") return "#3b82f6";
+              if (d?.status === "completed") return "#10b981";
+              if (d?.status === "failed") return "#f43f5e";
               return "#475569";
             }}
             maskColor="rgba(15, 23, 42, 0.7)"
             className="!bg-card !border-border rounded-lg overflow-hidden"
           />
         </ReactFlow>
-
-        {lastEvent && (
-          <div className="absolute bottom-4 left-4 text-[11px] font-mono bg-background/90 border border-border px-3 py-1.5 rounded-lg shadow-sm backdrop-blur text-muted-foreground">
-            Latest stream update: <span className="text-foreground">{lastEvent}</span>
-          </div>
-        )}
       </div>
     </div>
   );

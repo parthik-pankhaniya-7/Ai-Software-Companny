@@ -5,7 +5,8 @@ defining file boundaries, technical implementation steps, UI requirement flags,
 and coordinating developer and designer allocations.
 """
 
-from pydantic import BaseModel, Field
+from typing import Any
+from pydantic import BaseModel, Field, field_validator
 
 from app.models.agent import AgentInput, AgentOutput
 from app.router.llm import call_llm
@@ -34,6 +35,24 @@ class TechnicalTaskPlan(BaseModel):
     ui_needed: bool = False
     assigned_agent: str = "developer"
 
+    @field_validator("technical_steps", mode="before")
+    @classmethod
+    def _coerce_steps(cls, v: Any) -> list[str]:
+        if isinstance(v, str):
+            return [v.strip()] if v.strip() else []
+        if isinstance(v, list):
+            return [str(x) for x in v]
+        return []
+
+    @field_validator("files_to_touch", mode="before")
+    @classmethod
+    def _coerce_files(cls, v: Any) -> list[str]:
+        if isinstance(v, str):
+            return [v.strip()] if v.strip() else []
+        if isinstance(v, list):
+            return [str(x) for x in v]
+        return []
+
 
 class TeamLeadOutput(BaseModel):
     """Structured artifact schema produced by the Team Lead agent."""
@@ -59,6 +78,8 @@ def run_team_lead(inp: AgentInput) -> AgentOutput:
         complexity="medium",
         system=SYSTEM_PROMPT,
         json_mode=True,
+        project_id=inp.project_id or "default",
+        agent="team_lead",
     )
 
     parsed = TeamLeadOutput.model_validate_json(result["text"])

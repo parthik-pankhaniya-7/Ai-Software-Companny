@@ -10,13 +10,14 @@ import logging
 import os
 from pathlib import Path
 
+from app.config import DATA_DIR
+
 logger = logging.getLogger(__name__)
 
 
 def _get_data_dir() -> Path:
-    """Resolve data directory path from environment variable DATA_DIR or default."""
-    data_dir_env = os.environ.get("DATA_DIR", "./data")
-    return Path(data_dir_env).resolve()
+    """Resolve data directory path anchored from app.config DATA_DIR."""
+    return DATA_DIR
 
 
 def _atomic_write(path: Path, text: str) -> None:

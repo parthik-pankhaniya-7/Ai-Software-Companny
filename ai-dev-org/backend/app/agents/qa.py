@@ -59,6 +59,8 @@ def run_qa(inp: AgentInput) -> AgentOutput:
         complexity="any",
         system=SYSTEM_PROMPT,
         json_mode=True,
+        project_id=inp.project_id or "default",
+        agent="qa",
     )
 
     parsed = QAOutput.model_validate_json(result["text"])

@@ -88,6 +88,7 @@ class Project(BaseModel):
 
 class AgentInput(BaseModel):
     """Universal input contract for agent execution."""
+    project_id: str = ""
     role: str
     objective: str
     task: str

@@ -61,6 +61,8 @@ def run_uiux(inp: AgentInput) -> AgentOutput:
         complexity="medium",
         system=SYSTEM_PROMPT,
         json_mode=True,
+        project_id=inp.project_id or "default",
+        agent="uiux",
     )
 
     parsed = UIUXOutput.model_validate_json(result["text"])

@@ -6,10 +6,12 @@ task tracking, human approval governance, and observability telemetry.
 
 import asyncio
 from contextlib import asynccontextmanager
+from datetime import datetime, timezone
 import json
 import logging
 import os
 from typing import Any
+from uuid import uuid4
 import uuid
 
 from fastapi import BackgroundTasks, FastAPI, HTTPException, WebSocket, WebSocketDisconnect
@@ -17,8 +19,21 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 
 from app.api import events
-from app.graph.workflow import cto_node, pm_node, team_lead_node, uiux_node, developer_node, qa_node, ai_engineer_node, route_team_lead, route_qa
+from app.config import LOG_DIR
+from app.graph.workflow import (
+    run_workflow,
+    cto_node,
+    pm_node,
+    team_lead_node,
+    uiux_node,
+    developer_node,
+    qa_node,
+    ai_engineer_node,
+    route_team_lead,
+    route_qa,
+)
 from app.graph.state import ProjectState
+from app.memory import store
 from app.memory.store import (
     init_db,
     list_projects,
@@ -30,12 +45,15 @@ from app.memory.store import (
     load_messages,
     save_lg_state,
     load_lg_state,
+    load_memory,
+    _get_data_dir,
 )
 from app.models.agent import Approval, Message, MessageType, Project, ProjectStatus, Task, TaskStatus
 from app.observability.log import read_recent
+from app.tools import git_tool, shell_tool
 
 logger = logging.getLogger("app.main")
-logging.basicConfig(level=logging.INFO)
+
 
 
 @asynccontextmanager
@@ -261,18 +279,23 @@ async def get_projects() -> list[dict[str, Any]]:
 
 
 @app.post("/projects")
-async def create_project(req: CreateProjectRequest, background_tasks: BackgroundTasks) -> dict[str, Any]:
+async def create_project(req: CreateProjectRequest) -> dict[str, Any]:
     """Create a new project and trigger background multi-agent graph execution."""
-    project_id = f"proj-{uuid.uuid4().hex[:8]}"
-    project_record = {
+    project_id = f"proj-{uuid4().hex[:8]}"
+    now_str = datetime.now(timezone.utc).isoformat()
+    project = {
         "id": project_id,
         "requirement": req.requirement,
         "status": "in_progress",
         "phase": "initiation",
-        "artifacts": {},
         "tasks": [],
+        "artifacts": {},
+        "created_at": now_str,
+        "updated_at": now_str,
     }
-    save_project(project_record)
+    store.save_project(project)
+    asyncio.create_task(run_workflow(project["id"], project["requirement"]))
+    logger.info("PROJECT_CREATED id=%s", project["id"])
 
     append_message(project_id, {
         "sender": "System",
@@ -281,8 +304,7 @@ async def create_project(req: CreateProjectRequest, background_tasks: Background
         "text": f"Project {project_id} initialized with requirement: {req.requirement}",
     })
 
-    background_tasks.add_task(run_project_workflow_bg, project_id, req.requirement)
-    return project_record
+    return {"project_id": project["id"], "project": project}
 
 
 @app.get("/projects/{project_id}")
@@ -344,40 +366,51 @@ async def get_logs(limit: int = 200) -> list[dict[str, Any]]:
     return read_recent(limit=limit)
 
 
-# WebSocket Endpoints for live updates
+@app.get("/memory")
+async def get_memory(project_id: str = "") -> list[dict[str, Any]]:
+    """Retrieve memory entries from data/memory/*.jsonl."""
+    if project_id:
+        return load_memory(project_id)
+
+    mem_dir = _get_data_dir() / "memory"
+    if not mem_dir.exists():
+        return []
+
+    all_memories: list[dict[str, Any]] = []
+    for f in mem_dir.glob("*.jsonl"):
+        all_memories.extend(load_memory(f.stem))
+    return all_memories
+
+
+@app.get("/tools")
+async def get_tools_status() -> dict[str, Any]:
+    """Retrieve git branch status and allowlisted shell tools."""
+    git_info = git_tool.current_branch(".")
+    return {
+        "git": {
+            "branch": git_info.get("stdout", "main") or "main",
+            "status": "active" if git_info.get("ok") else "clean",
+            "safe_mode": True,
+            "forbidden_commands": ["push", "--force", "-f", "--hard"],
+        },
+        "shell": {
+            "allowlist": sorted(list(shell_tool.ALLOWLIST)),
+            "timeout_seconds": 30,
+            "status": "active",
+        },
+    }
+
+
 @app.websocket("/ws/{project_id}")
 @app.websocket("/ws/projects/{project_id}")
-async def websocket_project_endpoint(websocket: WebSocket, project_id: str) -> None:
-    """Stream real-time agent updates and accept operator messages."""
+async def ws_project(websocket: WebSocket, project_id: str):
     await websocket.accept()
-    queue = events.subscribe(project_id)
-
-    async def receive_from_client():
-        try:
-            while True:
-                data = await websocket.receive_text()
-                try:
-                    parsed = json.loads(data)
-                    append_message(project_id, {
-                        "sender": parsed.get("sender", "user"),
-                        "receiver": "agents",
-                        "type": "text",
-                        "text": parsed.get("text", data),
-                    })
-                    await events.publish(project_id, parsed)
-                except json.JSONDecodeError:
-                    pass
-        except WebSocketDisconnect:
-            pass
-
-    client_task = asyncio.create_task(receive_from_client())
-
+    q = events.subscribe(project_id)
     try:
         while True:
-            event = await queue.get()
+            event = await q.get()
             await websocket.send_json(event)
-    except (WebSocketDisconnect, Exception):
+    except WebSocketDisconnect:
         pass
     finally:
-        client_task.cancel()
-        events.unsubscribe(project_id, queue)
+        events.unsubscribe(project_id, q)

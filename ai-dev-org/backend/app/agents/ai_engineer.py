@@ -57,6 +57,8 @@ def run_ai_engineer(inp: AgentInput) -> AgentOutput:
         complexity="any",
         system=SYSTEM_PROMPT,
         json_mode=True,
+        project_id=inp.project_id or "default",
+        agent="ai_engineer",
     )
 
     parsed = AIEngineerOutput.model_validate_json(result["text"])

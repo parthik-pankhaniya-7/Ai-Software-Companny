@@ -11,17 +11,17 @@ import os
 from pathlib import Path
 from typing import Any
 
+from app.config import LOG_DIR
+
 logger = logging.getLogger(__name__)
 
 MAX_LOG_BYTES = 50 * 1024 * 1024  # 50 MB
 
 
 def _resolve_paths() -> tuple[Path, Path]:
-    """Resolve active log directory and log file based on LOG_DIR env."""
-    log_dir_env = os.environ.get("LOG_DIR", "./logs")
-    log_dir = Path(log_dir_env).resolve()
-    log_dir.mkdir(parents=True, exist_ok=True)
-    return log_dir, log_dir / "langfuse.jsonl"
+    """Resolve active log directory and log file based on app.config LOG_DIR."""
+    LOG_DIR.mkdir(parents=True, exist_ok=True)
+    return LOG_DIR, LOG_DIR / "langfuse.jsonl"
 
 
 LOG_DIR, LOG_FILE = _resolve_paths()

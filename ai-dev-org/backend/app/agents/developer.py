@@ -57,6 +57,8 @@ def run_developer(inp: AgentInput) -> AgentOutput:
         complexity="high",
         system=SYSTEM_PROMPT,
         json_mode=True,
+        project_id=inp.project_id or "default",
+        agent="developer",
     )
 
     parsed = DeveloperOutput.model_validate_json(result["text"])

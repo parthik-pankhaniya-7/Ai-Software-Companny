@@ -4,63 +4,82 @@
 
 const WS_BASE_URL = process.env.NEXT_PUBLIC_WS_URL || "ws://localhost:8000";
 
-export type WebSocketMessageHandler = (data: unknown) => void;
+export type WebSocketMessageHandler = (data: any) => void;
+
+/**
+ * Connect to project WebSocket stream and listen for execution events.
+ * Handles automatic exponential backoff reconnection and returns cleanup function.
+ */
+export function connectProject(
+  projectId: string,
+  onEvent: (event: any) => void
+): () => void {
+  if (typeof window === "undefined") {
+    return () => {};
+  }
+
+  let socket: WebSocket | null = null;
+  let isClosed = false;
+  let attempt = 0;
+  let reconnectTimer: NodeJS.Timeout | null = null;
+
+  function connect() {
+    if (isClosed) return;
+    const cleanId = projectId.replace(/^projects\//, "").replace(/^\//, "");
+    const base = WS_BASE_URL.replace(/\/$/, "");
+    const url = `${base}/ws/projects/${cleanId}`;
+
+    socket = new WebSocket(url);
+
+    socket.onopen = () => {
+      attempt = 0;
+    };
+
+    socket.onmessage = (e: MessageEvent<string>) => {
+      try {
+        const data = JSON.parse(e.data);
+        onEvent(data);
+      } catch {
+        onEvent(e.data);
+      }
+    };
+
+    socket.onclose = () => {
+      if (!isClosed) {
+        attempt += 1;
+        const delay = Math.min(1000 * Math.pow(2, attempt - 1), 10000);
+        reconnectTimer = setTimeout(connect, delay);
+      }
+    };
+
+    socket.onerror = () => {
+      socket?.close();
+    };
+  }
+
+  connect();
+
+  return () => {
+    isClosed = true;
+    if (reconnectTimer) clearTimeout(reconnectTimer);
+    if (socket) {
+      socket.close();
+      socket = null;
+    }
+  };
+}
 
 export class RealtimeClient {
-  private socket: WebSocket | null = null;
-  private projectId: string;
-  private onMessageCallback: WebSocketMessageHandler;
-  private reconnectAttempts = 0;
-  private maxReconnectAttempts = 5;
-  private isExplicitlyClosed = false;
+  private cleanup: () => void;
 
   constructor(projectId: string, onMessage: WebSocketMessageHandler) {
-    this.projectId = projectId;
-    this.onMessageCallback = onMessage;
-    this.connect();
+    this.cleanup = connectProject(projectId, onMessage);
   }
 
-  private connect(): void {
-    if (typeof window === "undefined") return;
-
-    const cleanId = this.projectId.replace(/^projects\//, "").replace(/^\//, "");
-    const url = `${WS_BASE_URL.replace(/\/$/, "")}/ws/projects/${cleanId}`;
-    this.socket = new WebSocket(url);
-
-    this.socket.onmessage = (event: MessageEvent<string>) => {
-      try {
-        const parsed = JSON.parse(event.data) as unknown;
-        this.onMessageCallback(parsed);
-      } catch {
-        this.onMessageCallback(event.data);
-      }
-    };
-
-    this.socket.onclose = () => {
-      if (!this.isExplicitlyClosed && this.reconnectAttempts < this.maxReconnectAttempts) {
-        this.reconnectAttempts += 1;
-        const delay = Math.min(1000 * 2 ** this.reconnectAttempts, 10000);
-        setTimeout(() => this.connect(), delay);
-      }
-    };
-
-    this.socket.onerror = () => {
-      this.socket?.close();
-    };
-  }
-
-  public send(data: unknown): void {
-    if (this.socket && this.socket.readyState === WebSocket.OPEN) {
-      this.socket.send(JSON.stringify(data));
-    }
-  }
+  public send(_data: unknown): void {}
 
   public disconnect(): void {
-    this.isExplicitlyClosed = true;
-    if (this.socket) {
-      this.socket.close();
-      this.socket = null;
-    }
+    this.cleanup();
   }
 }
 

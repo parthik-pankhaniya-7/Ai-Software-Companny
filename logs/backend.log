@@ -1,0 +1,2455 @@
+2026-10-04 16:16:26,078 INFO app.graph.workflow WORKFLOW_START project=test-manual
+2026-10-04 16:16:26,090 INFO app.graph.workflow NODE_START cto project=test-manual
+2026-10-04 16:16:26,172 INFO LiteLLM 
+LiteLLM completion() model= gemini-1.5-pro; provider = gemini
+2026-10-04 16:16:27,245 WARNING app.router.llm LLM call attempt 1 failed with retryable error (litellm.NotFoundError: GeminiException - {
+  "error": {
+    "code": 404,
+    "message": "models/gemini-1.5-pro is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.",
+    "status": "NOT_FOUND"
+  }
+}
+). Retrying in 1s...
+2026-10-04 16:16:28,247 INFO LiteLLM 
+LiteLLM completion() model= gemini-flash-latest; provider = gemini
+2026-10-04 16:16:32,457 WARNING app.router.llm LLM call attempt 2 failed with retryable error (litellm.ServiceUnavailableError: GeminiException - {
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
+). Retrying in 2s...
+2026-10-04 16:16:34,459 INFO LiteLLM 
+LiteLLM completion() model= gemini-flash-lite-latest; provider = gemini
+2026-10-04 16:16:36,459 INFO LiteLLM Wrapper: Completed Call, calling success_handler
+2026-10-04 16:16:36,466 INFO app.graph.workflow NODE_END cto project=test-manual
+2026-10-04 16:16:36,470 INFO app.graph.workflow NODE_START pm project=test-manual
+2026-10-04 16:16:36,473 INFO LiteLLM 
+LiteLLM completion() model= gemini-1.5-flash; provider = gemini
+2026-10-04 16:16:36,956 WARNING app.router.llm LLM call attempt 1 failed with retryable error (litellm.NotFoundError: GeminiException - {
+  "error": {
+    "code": 404,
+    "message": "models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.",
+    "status": "NOT_FOUND"
+  }
+}
+). Retrying in 1s...
+2026-10-04 16:16:37,959 INFO LiteLLM 
+LiteLLM completion() model= gemini-flash-latest; provider = gemini
+2026-10-04 16:16:40,174 WARNING app.router.llm LLM call attempt 2 failed with retryable error (litellm.ServiceUnavailableError: GeminiException - {
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
+). Retrying in 2s...
+2026-10-04 16:16:42,177 INFO LiteLLM 
+LiteLLM completion() model= gemini-flash-lite-latest; provider = gemini
+2026-10-04 16:16:44,295 INFO LiteLLM Wrapper: Completed Call, calling success_handler
+2026-10-04 16:16:44,301 INFO app.graph.workflow NODE_END pm project=test-manual
+2026-10-04 16:16:44,304 INFO app.graph.workflow NODE_START team_lead project=test-manual
+2026-10-04 16:16:44,307 INFO LiteLLM 
+LiteLLM completion() model= gemini-1.5-pro; provider = gemini
+2026-10-04 16:16:44,773 WARNING app.router.llm LLM call attempt 1 failed with retryable error (litellm.NotFoundError: GeminiException - {
+  "error": {
+    "code": 404,
+    "message": "models/gemini-1.5-pro is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.",
+    "status": "NOT_FOUND"
+  }
+}
+). Retrying in 1s...
+2026-10-04 16:16:45,777 INFO LiteLLM 
+LiteLLM completion() model= gemini-flash-latest; provider = gemini
+2026-10-04 16:16:52,157 WARNING app.router.llm LLM call attempt 2 failed with retryable error (litellm.ServiceUnavailableError: GeminiException - {
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
+). Retrying in 2s...
+2026-10-04 16:16:54,160 INFO LiteLLM 
+LiteLLM completion() model= gemini-flash-lite-latest; provider = gemini
+2026-10-04 16:16:55,967 INFO LiteLLM Wrapper: Completed Call, calling success_handler
+2026-10-04 16:16:55,973 INFO app.graph.workflow NODE_END team_lead project=test-manual
+2026-10-04 16:16:55,977 INFO app.graph.workflow NODE_START developer project=test-manual
+2026-10-04 16:16:55,981 INFO LiteLLM 
+LiteLLM completion() model= gemini-1.5-pro; provider = gemini
+2026-10-04 16:16:56,342 WARNING app.router.llm LLM call attempt 1 failed with retryable error (litellm.NotFoundError: GeminiException - {
+  "error": {
+    "code": 404,
+    "message": "models/gemini-1.5-pro is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.",
+    "status": "NOT_FOUND"
+  }
+}
+). Retrying in 1s...
+2026-10-04 16:16:57,345 INFO LiteLLM 
+LiteLLM completion() model= gemini-flash-latest; provider = gemini
+2026-10-04 16:17:01,227 WARNING app.router.llm LLM call attempt 2 failed with retryable error (litellm.ServiceUnavailableError: GeminiException - {
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
+). Retrying in 2s...
+2026-10-04 16:17:03,229 INFO LiteLLM 
+LiteLLM completion() model= gemini-flash-lite-latest; provider = gemini
+2026-10-04 16:17:05,415 INFO LiteLLM Wrapper: Completed Call, calling success_handler
+2026-10-04 16:17:05,422 INFO app.graph.workflow NODE_END developer project=test-manual
+2026-10-04 16:17:05,425 INFO app.graph.workflow NODE_START qa project=test-manual
+2026-10-04 16:17:05,428 INFO LiteLLM 
+LiteLLM completion() model= gemini-1.5-flash; provider = gemini
+2026-10-04 16:17:05,781 WARNING app.router.llm LLM call attempt 1 failed with retryable error (litellm.NotFoundError: GeminiException - {
+  "error": {
+    "code": 404,
+    "message": "models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.",
+    "status": "NOT_FOUND"
+  }
+}
+). Retrying in 1s...
+2026-10-04 16:17:06,786 INFO LiteLLM 
+LiteLLM completion() model= gemini-flash-latest; provider = gemini
+2026-10-04 16:17:14,893 WARNING app.router.llm LLM call attempt 2 failed with retryable error (litellm.ServiceUnavailableError: GeminiException - {
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
+). Retrying in 2s...
+2026-10-04 16:17:16,895 INFO LiteLLM 
+LiteLLM completion() model= gemini-flash-lite-latest; provider = gemini
+2026-10-04 16:17:18,693 INFO LiteLLM Wrapper: Completed Call, calling success_handler
+2026-10-04 16:17:18,699 INFO app.graph.workflow NODE_END qa project=test-manual
+2026-10-04 16:17:18,703 INFO app.graph.workflow NODE_START ai_engineer project=test-manual
+2026-10-04 16:17:18,706 INFO LiteLLM 
+LiteLLM completion() model= gemini-1.5-flash; provider = gemini
+2026-10-04 16:17:19,146 WARNING app.router.llm LLM call attempt 1 failed with retryable error (litellm.NotFoundError: GeminiException - {
+  "error": {
+    "code": 404,
+    "message": "models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.",
+    "status": "NOT_FOUND"
+  }
+}
+). Retrying in 1s...
+2026-10-04 16:17:20,150 INFO LiteLLM 
+LiteLLM completion() model= gemini-flash-latest; provider = gemini
+2026-10-04 16:17:24,658 WARNING app.router.llm LLM call attempt 2 failed with retryable error (litellm.ServiceUnavailableError: GeminiException - {
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
+). Retrying in 2s...
+2026-10-04 16:17:26,662 INFO LiteLLM 
+LiteLLM completion() model= gemini-flash-lite-latest; provider = gemini
+2026-10-04 16:17:28,131 INFO LiteLLM Wrapper: Completed Call, calling success_handler
+2026-10-04 16:17:28,137 INFO app.graph.workflow NODE_END ai_engineer project=test-manual
+2026-10-04 16:17:28,142 INFO app.graph.workflow WORKFLOW_END project=test-manual
+2026-10-04 16:18:49,108 INFO app.graph.workflow WORKFLOW_START project=test-manual
+2026-10-04 16:18:49,123 INFO app.graph.workflow NODE_START cto project=test-manual
+2026-10-04 16:18:49,204 INFO LiteLLM 
+LiteLLM completion() model= gemini-1.5-pro; provider = gemini
+2026-10-04 16:18:50,146 WARNING app.router.llm LLM call attempt 1 failed with retryable error (litellm.NotFoundError: GeminiException - {
+  "error": {
+    "code": 404,
+    "message": "models/gemini-1.5-pro is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.",
+    "status": "NOT_FOUND"
+  }
+}
+). Retrying in 1s...
+2026-10-04 16:18:51,150 INFO LiteLLM 
+LiteLLM completion() model= gemini-flash-latest; provider = gemini
+2026-10-04 16:18:55,677 WARNING app.router.llm LLM call attempt 2 failed with retryable error (litellm.ServiceUnavailableError: GeminiException - {
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
+). Retrying in 2s...
+2026-10-04 16:18:57,679 INFO LiteLLM 
+LiteLLM completion() model= gemini-flash-lite-latest; provider = gemini
+2026-10-04 16:18:59,432 INFO LiteLLM Wrapper: Completed Call, calling success_handler
+2026-10-04 16:18:59,447 INFO app.graph.workflow NODE_END cto project=test-manual
+2026-10-04 16:18:59,451 INFO app.graph.workflow NODE_START pm project=test-manual
+2026-10-04 16:18:59,454 INFO LiteLLM 
+LiteLLM completion() model= gemini-1.5-flash; provider = gemini
+2026-10-04 16:18:59,851 WARNING app.router.llm LLM call attempt 1 failed with retryable error (litellm.NotFoundError: GeminiException - {
+  "error": {
+    "code": 404,
+    "message": "models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.",
+    "status": "NOT_FOUND"
+  }
+}
+). Retrying in 1s...
+2026-10-04 16:19:00,857 INFO LiteLLM 
+LiteLLM completion() model= gemini-flash-latest; provider = gemini
+2026-10-04 16:19:02,412 WARNING app.router.llm LLM call attempt 2 failed with retryable error (litellm.ServiceUnavailableError: GeminiException - {
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
+). Retrying in 2s...
+2026-10-04 16:19:04,414 INFO LiteLLM 
+LiteLLM completion() model= gemini-flash-lite-latest; provider = gemini
+2026-10-04 16:19:06,437 INFO LiteLLM Wrapper: Completed Call, calling success_handler
+2026-10-04 16:19:06,444 INFO app.graph.workflow NODE_END pm project=test-manual
+2026-10-04 16:19:06,447 INFO app.graph.workflow NODE_START team_lead project=test-manual
+2026-10-04 16:19:06,450 INFO LiteLLM 
+LiteLLM completion() model= gemini-1.5-pro; provider = gemini
+2026-10-04 16:19:06,876 WARNING app.router.llm LLM call attempt 1 failed with retryable error (litellm.NotFoundError: GeminiException - {
+  "error": {
+    "code": 404,
+    "message": "models/gemini-1.5-pro is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.",
+    "status": "NOT_FOUND"
+  }
+}
+). Retrying in 1s...
+2026-10-04 16:19:07,881 INFO LiteLLM 
+LiteLLM completion() model= gemini-flash-latest; provider = gemini
+2026-10-04 16:19:11,417 INFO LiteLLM Wrapper: Completed Call, calling success_handler
+2026-10-04 16:19:11,424 INFO app.graph.workflow NODE_END team_lead project=test-manual
+2026-10-04 16:19:11,429 INFO app.graph.workflow NODE_START developer project=test-manual
+2026-10-04 16:19:11,431 INFO LiteLLM 
+LiteLLM completion() model= gemini-1.5-pro; provider = gemini
+2026-10-04 16:19:11,849 WARNING app.router.llm LLM call attempt 1 failed with retryable error (litellm.NotFoundError: GeminiException - {
+  "error": {
+    "code": 404,
+    "message": "models/gemini-1.5-pro is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.",
+    "status": "NOT_FOUND"
+  }
+}
+). Retrying in 1s...
+2026-10-04 16:19:12,852 INFO LiteLLM 
+LiteLLM completion() model= gemini-flash-latest; provider = gemini
+2026-10-04 16:19:13,254 WARNING app.router.llm LLM call attempt 2 failed with retryable error (litellm.RateLimitError: litellm.RateLimitError: geminiException - {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.8-flash\nPlease retry in 13h10m47.085478664s.",
+    "status": "RESOURCE_EXHAUSTED",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.Help",
+        "links": [
+          {
+            "description": "Learn more about Gemini API quotas",
+            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.QuotaFailure",
+        "violations": [
+          {
+            "quotaMetric": "generativelanguage.googleapis.com/generate_content_free_tier_requests",
+            "quotaId": "GenerateRequestsPerDayPerProjectPerModel-FreeTier",
+            "quotaDimensions": {
+              "model": "gemini-3.8-flash",
+              "location": "global"
+            },
+            "quotaValue": "20"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.RetryInfo",
+        "retryDelay": "47447s"
+      }
+    ]
+  }
+}
+). Retrying in 2s...
+2026-10-04 16:19:15,257 INFO LiteLLM 
+LiteLLM completion() model= gemini-flash-latest; provider = gemini
+2026-10-04 16:19:15,623 WARNING app.router.llm LLM call attempt 3 failed with retryable error (litellm.RateLimitError: litellm.RateLimitError: geminiException - {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.8-flash\nPlease retry in 13h10m44.689069296s.",
+    "status": "RESOURCE_EXHAUSTED",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.Help",
+        "links": [
+          {
+            "description": "Learn more about Gemini API quotas",
+            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.QuotaFailure",
+        "violations": [
+          {
+            "quotaMetric": "generativelanguage.googleapis.com/generate_content_free_tier_requests",
+            "quotaId": "GenerateRequestsPerDayPerProjectPerModel-FreeTier",
+            "quotaDimensions": {
+              "location": "global",
+              "model": "gemini-3.8-flash"
+            },
+            "quotaValue": "20"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.RetryInfo",
+        "retryDelay": "47444s"
+      }
+    ]
+  }
+}
+). Retrying in 4s...
+2026-10-04 16:19:19,625 INFO LiteLLM 
+LiteLLM completion() model= gemini-flash-latest; provider = gemini
+2026-10-04 16:19:20,169 ERROR app.router.llm LLM call failed permanently on attempt 4 with model gemini/gemini-flash-latest: litellm.RateLimitError: litellm.RateLimitError: geminiException - {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.8-flash\nPlease retry in 13h10m40.170863929s.",
+    "status": "RESOURCE_EXHAUSTED",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.Help",
+        "links": [
+          {
+            "description": "Learn more about Gemini API quotas",
+            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.QuotaFailure",
+        "violations": [
+          {
+            "quotaMetric": "generativelanguage.googleapis.com/generate_content_free_tier_requests",
+            "quotaId": "GenerateRequestsPerDayPerProjectPerModel-FreeTier",
+            "quotaDimensions": {
+              "location": "global",
+              "model": "gemini-3.8-flash"
+            },
+            "quotaValue": "20"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.RetryInfo",
+        "retryDelay": "47440s"
+      }
+    ]
+  }
+}
+
+2026-10-04 16:19:20,171 ERROR app.graph.workflow WORKFLOW_FAIL project=test-manual
+Traceback (most recent call last):
+  File "G:\Ai Software Companny\ai-dev-org\backend\.venv\Lib\site-packages\litellm\llms\vertex_ai\gemini\vertex_and_google_ai_studio_gemini.py", line 3044, in completion
+    response: Final = client.post(url=url, headers=headers, json=data, logging_obj=logging_obj)
+                      ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\Ai Software Companny\ai-dev-org\backend\.venv\Lib\site-packages\litellm\llms\custom_httpx\http_handler.py", line 1523, in post
+    _raise_masked_sync_error(e, stream)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "G:\Ai Software Companny\ai-dev-org\backend\.venv\Lib\site-packages\litellm\llms\custom_httpx\http_handler.py", line 529, in _raise_masked_sync_error
+    raise MaskedHTTPStatusError(e, message=_text, text=_text) from None
+litellm.llms.custom_httpx.http_handler.MaskedHTTPStatusError: Client error '429 Too Many Requests' for url 'https://generativelanguage.googleapis.com/v1alpha/models/gemini-flash-latest:generateContent'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\Ai Software Companny\ai-dev-org\backend\.venv\Lib\site-packages\litellm\main.py", line 5963, in completion
+    response = _complete_vertex_ai_beta(_dispatch_ctx)
+  File "G:\Ai Software Companny\ai-dev-org\backend\.venv\Lib\site-packages\litellm\main.py", line 3705, in _complete_vertex_ai_beta
+    return vertex_chat_completion.completion(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        model=model,
+        ^^^^^^^^^^^^
+    ...<17 lines>...
+        extra_headers=headers,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "G:\Ai Software Companny\ai-dev-org\backend\.venv\Lib\site-packages\litellm\llms\vertex_ai\gemini\vertex_and_google_ai_studio_gemini.py", line 3048, in completion
+    raise VertexAIError(
+    ...<3 lines>...
+    )
+litellm.llms.vertex_ai.common_utils.VertexAIError: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.8-flash\nPlease retry in 13h10m40.170863929s.",
+    "status": "RESOURCE_EXHAUSTED",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.Help",
+        "links": [
+          {
+            "description": "Learn more about Gemini API quotas",
+            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.QuotaFailure",
+        "violations": [
+          {
+            "quotaMetric": "generativelanguage.googleapis.com/generate_content_free_tier_requests",
+            "quotaId": "GenerateRequestsPerDayPerProjectPerModel-FreeTier",
+            "quotaDimensions": {
+              "location": "global",
+              "model": "gemini-3.8-flash"
+            },
+            "quotaValue": "20"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.RetryInfo",
+        "retryDelay": "47440s"
+      }
+    ]
+  }
+}
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\Ai Software Companny\ai-dev-org\backend\app\graph\workflow.py", line 289, in run_workflow
+    final = await app.ainvoke(initial, config=config)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\Ai Software Companny\ai-dev-org\backend\.venv\Lib\site-packages\langgraph\pregel\main.py", line 4090, in ainvoke
+    async for chunk in self.astream(
+    ...<30 lines>...
+            chunks.append(chunk)
+  File "G:\Ai Software Companny\ai-dev-org\backend\.venv\Lib\site-packages\langgraph\pregel\main.py", line 3440, in astream
+    async for _ in runner.atick(
+    ...<16 lines>...
+            yield o
+  File "G:\Ai Software Companny\ai-dev-org\backend\.venv\Lib\site-packages\langgraph\pregel\_runner.py", line 396, in atick
+    await arun_with_retry(
+    ...<15 lines>...
+    )
+  File "G:\Ai Software Companny\ai-dev-org\backend\.venv\Lib\site-packages\langgraph\pregel\_retry.py", line 744, in arun_with_retry
+    return await task.proc.ainvoke(task.input, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\Ai Software Companny\ai-dev-org\backend\.venv\Lib\site-packages\langgraph\_internal\_runnable.py", line 756, in ainvoke
+    input = await asyncio.create_task(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+        step.ainvoke(input, config, **kwargs), context=context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "G:\Ai Software Companny\ai-dev-org\backend\.venv\Lib\site-packages\langgraph\_internal\_runnable.py", line 522, in ainvoke
+    ret = await self.afunc(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\Ai Software Companny\ai-dev-org\backend\.venv\Lib\site-packages\langchain_core\runnables\config.py", line 707, in run_in_executor
+    return await asyncio.get_running_loop().run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+    )
+    ^
+  File "C:\Users\LENOVO\AppData\Local\Python\pythoncore-3.14-64\Lib\concurrent\futures\thread.py", line 86, in run
+    result = ctx.run(self.task)
+  File "C:\Users\LENOVO\AppData\Local\Python\pythoncore-3.14-64\Lib\concurrent\futures\thread.py", line 73, in run
+    return fn(*args, **kwargs)
+  File "G:\Ai Software Companny\ai-dev-org\backend\.venv\Lib\site-packages\langchain_core\runnables\config.py", line 698, in wrapper
+    return func(*args, **kwargs)
+  File "G:\Ai Software Companny\ai-dev-org\backend\app\graph\workflow.py", line 159, in developer_node
+    out = run_developer(inp)
+  File "G:\Ai Software Companny\ai-dev-org\backend\app\agents\developer.py", line 54, in run_developer
+    result = call_llm(
+        prompt=prompt,
+    ...<3 lines>...
+        json_mode=True,
+    )
+  File "G:\Ai Software Companny\ai-dev-org\backend\app\router\llm.py", line 142, in call_llm
+    response = litellm.completion(**call_kwargs)
+  File "G:\Ai Software Companny\ai-dev-org\backend\.venv\Lib\site-packages\litellm\chat_completions\dispatch.py", line 103, in completion
+    return _DISPATCH.run(
+           ~~~~~~~~~~~~~^
+        args,
+        ^^^^^
+    ...<3 lines>...
+        native=call_hook,
+        ^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "G:\Ai Software Companny\ai-dev-org\backend\.venv\Lib\site-packages\litellm\rust_bridge\dispatch.py", line 81, in run
+    return python(*args, **kwargs)
+  File "G:\Ai Software Companny\ai-dev-org\backend\.venv\Lib\site-packages\litellm\utils.py", line 1951, in wrapper
+    raise e
+  File "G:\Ai Software Companny\ai-dev-org\backend\.venv\Lib\site-packages\litellm\utils.py", line 1792, in wrapper
+    result = original_function(*args, **kwargs)
+  File "G:\Ai Software Companny\ai-dev-org\backend\.venv\Lib\site-packages\litellm\main.py", line 6038, in completion
+    raise exception_type(
+          ~~~~~~~~~~~~~~^
+        model=model,
+        ^^^^^^^^^^^^
+    ...<3 lines>...
+        extra_kwargs=kwargs,
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "G:\Ai Software Companny\ai-dev-org\backend\.venv\Lib\site-packages\litellm\litellm_core_utils\exception_mapping_utils.py", line 2719, in exception_type
+    raise e  # it's already mapped
+    ^^^^^^^
+  File "G:\Ai Software Companny\ai-dev-org\backend\.venv\Lib\site-packages\litellm\litellm_core_utils\exception_mapping_utils.py", line 2530, in exception_type
+    _map_vertex_exception(
+    ~~~~~~~~~~~~~~~~~~~~~^
+        model=model,
+        ^^^^^^^^^^^^
+    ...<5 lines>...
+        extra_information=extra_information,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "G:\Ai Software Companny\ai-dev-org\backend\.venv\Lib\site-packages\litellm\litellm_core_utils\exception_mapping_utils.py", line 1237, in _map_vertex_exception
+    raise RateLimitError(
+    ...<11 lines>...
+    )
+litellm.exceptions.RateLimitError: litellm.RateLimitError: litellm.RateLimitError: geminiException - {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.8-flash\nPlease retry in 13h10m40.170863929s.",
+    "status": "RESOURCE_EXHAUSTED",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.Help",
+        "links": [
+          {
+            "description": "Learn more about Gemini API quotas",
+            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.QuotaFailure",
+        "violations": [
+          {
+            "quotaMetric": "generativelanguage.googleapis.com/generate_content_free_tier_requests",
+            "quotaId": "GenerateRequestsPerDayPerProjectPerModel-FreeTier",
+            "quotaDimensions": {
+              "location": "global",
+              "model": "gemini-3.8-flash"
+            },
+            "quotaValue": "20"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.RetryInfo",
+        "retryDelay": "47440s"
+      }
+    ]
+  }
+}
+
+During task with name 'developer' and id '1dbe1d78-70c8-2e91-d3c8-049ab061608a'
+2026-10-04 16:20:24,164 INFO app.graph.workflow WORKFLOW_START project=test-manual
+2026-10-04 16:20:24,164 INFO app.graph.workflow WORKFLOW_START project=test-manual
+2026-10-04 16:20:24,174 INFO app.graph.workflow NODE_START cto project=test-manual
+2026-10-04 16:20:24,174 INFO app.graph.workflow NODE_START cto project=test-manual
+2026-10-04 16:20:25,546 WARNING app.router.llm LLM call attempt 1 failed with retryable error (litellm.NotFoundError: GeminiException - {
+  "error": {
+    "code": 404,
+    "message": "models/gemini-1.5-pro is not found for API version v1beta, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.",
+    "status": "NOT_FOUND"
+  }
+}
+). Retrying in 1s...
+2026-10-04 16:20:26,965 WARNING app.router.llm LLM call attempt 2 failed with retryable error (litellm.RateLimitError: litellm.RateLimitError: geminiException - {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.8-flash\nPlease retry in 13h9m33.340985409s.",
+    "status": "RESOURCE_EXHAUSTED",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.Help",
+        "links": [
+          {
+            "description": "Learn more about Gemini API quotas",
+            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.QuotaFailure",
+        "violations": [
+          {
+            "quotaMetric": "generativelanguage.googleapis.com/generate_content_free_tier_requests",
+            "quotaId": "GenerateRequestsPerDayPerProjectPerModel-FreeTier",
+            "quotaDimensions": {
+              "location": "global",
+              "model": "gemini-3.8-flash"
+            },
+            "quotaValue": "20"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.RetryInfo",
+        "retryDelay": "47373s"
+      }
+    ]
+  }
+}
+). Retrying in 2s...
+2026-10-04 16:20:29,448 WARNING app.router.llm LLM call attempt 3 failed with retryable error (litellm.RateLimitError: litellm.RateLimitError: geminiException - {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.8-flash\nPlease retry in 13h9m30.958491961s.",
+    "status": "RESOURCE_EXHAUSTED",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.Help",
+        "links": [
+          {
+            "description": "Learn more about Gemini API quotas",
+            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.QuotaFailure",
+        "violations": [
+          {
+            "quotaMetric": "generativelanguage.googleapis.com/generate_content_free_tier_requests",
+            "quotaId": "GenerateRequestsPerDayPerProjectPerModel-FreeTier",
+            "quotaDimensions": {
+              "model": "gemini-3.8-flash",
+              "location": "global"
+            },
+            "quotaValue": "20"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.RetryInfo",
+        "retryDelay": "47370s"
+      }
+    ]
+  }
+}
+). Retrying in 4s...
+2026-10-04 16:20:33,827 ERROR app.router.llm LLM call failed permanently on attempt 4 with model gemini/gemini-flash-latest: litellm.RateLimitError: litellm.RateLimitError: geminiException - {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.8-flash\nPlease retry in 13h9m26.479743757s.",
+    "status": "RESOURCE_EXHAUSTED",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.Help",
+        "links": [
+          {
+            "description": "Learn more about Gemini API quotas",
+            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.QuotaFailure",
+        "violations": [
+          {
+            "quotaMetric": "generativelanguage.googleapis.com/generate_content_free_tier_requests",
+            "quotaId": "GenerateRequestsPerDayPerProjectPerModel-FreeTier",
+            "quotaDimensions": {
+              "location": "global",
+              "model": "gemini-3.8-flash"
+            },
+            "quotaValue": "20"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.RetryInfo",
+        "retryDelay": "47366s"
+      }
+    ]
+  }
+}
+
+2026-10-04 16:20:33,828 ERROR app.graph.workflow WORKFLOW_FAIL project=test-manual
+Traceback (most recent call last):
+  File "G:\Ai Software Companny\ai-dev-org\backend\.venv\Lib\site-packages\litellm\llms\vertex_ai\gemini\vertex_and_google_ai_studio_gemini.py", line 3044, in completion
+    response: Final = client.post(url=url, headers=headers, json=data, logging_obj=logging_obj)
+                      ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\Ai Software Companny\ai-dev-org\backend\.venv\Lib\site-packages\litellm\llms\custom_httpx\http_handler.py", line 1523, in post
+    _raise_masked_sync_error(e, stream)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "G:\Ai Software Companny\ai-dev-org\backend\.venv\Lib\site-packages\litellm\llms\custom_httpx\http_handler.py", line 529, in _raise_masked_sync_error
+    raise MaskedHTTPStatusError(e, message=_text, text=_text) from None
+litellm.llms.custom_httpx.http_handler.MaskedHTTPStatusError: Client error '429 Too Many Requests' for url 'https://generativelanguage.googleapis.com/v1alpha/models/gemini-flash-latest:generateContent'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\Ai Software Companny\ai-dev-org\backend\.venv\Lib\site-packages\litellm\main.py", line 5963, in completion
+    response = _complete_vertex_ai_beta(_dispatch_ctx)
+  File "G:\Ai Software Companny\ai-dev-org\backend\.venv\Lib\site-packages\litellm\main.py", line 3705, in _complete_vertex_ai_beta
+    return vertex_chat_completion.completion(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        model=model,
+        ^^^^^^^^^^^^
+    ...<17 lines>...
+        extra_headers=headers,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "G:\Ai Software Companny\ai-dev-org\backend\.venv\Lib\site-packages\litellm\llms\vertex_ai\gemini\vertex_and_google_ai_studio_gemini.py", line 3048, in completion
+    raise VertexAIError(
+    ...<3 lines>...
+    )
+litellm.llms.vertex_ai.common_utils.VertexAIError: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.8-flash\nPlease retry in 13h9m26.479743757s.",
+    "status": "RESOURCE_EXHAUSTED",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.Help",
+        "links": [
+          {
+            "description": "Learn more about Gemini API quotas",
+            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.QuotaFailure",
+        "violations": [
+          {
+            "quotaMetric": "generativelanguage.googleapis.com/generate_content_free_tier_requests",
+            "quotaId": "GenerateRequestsPerDayPerProjectPerModel-FreeTier",
+            "quotaDimensions": {
+              "location": "global",
+              "model": "gemini-3.8-flash"
+            },
+            "quotaValue": "20"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.RetryInfo",
+        "retryDelay": "47366s"
+      }
+    ]
+  }
+}
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\Ai Software Companny\ai-dev-org\backend\app\graph\workflow.py", line 292, in run_workflow
+    final = await app.ainvoke(initial, config=config)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\Ai Software Companny\ai-dev-org\backend\.venv\Lib\site-packages\langgraph\pregel\main.py", line 4090, in ainvoke
+    async for chunk in self.astream(
+    ...<30 lines>...
+            chunks.append(chunk)
+  File "G:\Ai Software Companny\ai-dev-org\backend\.venv\Lib\site-packages\langgraph\pregel\main.py", line 3440, in astream
+    async for _ in runner.atick(
+    ...<16 lines>...
+            yield o
+  File "G:\Ai Software Companny\ai-dev-org\backend\.venv\Lib\site-packages\langgraph\pregel\_runner.py", line 396, in atick
+    await arun_with_retry(
+    ...<15 lines>...
+    )
+  File "G:\Ai Software Companny\ai-dev-org\backend\.venv\Lib\site-packages\langgraph\pregel\_retry.py", line 744, in arun_with_retry
+    return await task.proc.ainvoke(task.input, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\Ai Software Companny\ai-dev-org\backend\.venv\Lib\site-packages\langgraph\_internal\_runnable.py", line 756, in ainvoke
+    input = await asyncio.create_task(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+        step.ainvoke(input, config, **kwargs), context=context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "G:\Ai Software Companny\ai-dev-org\backend\.venv\Lib\site-packages\langgraph\_internal\_runnable.py", line 522, in ainvoke
+    ret = await self.afunc(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\Ai Software Companny\ai-dev-org\backend\.venv\Lib\site-packages\langchain_core\runnables\config.py", line 707, in run_in_executor
+    return await asyncio.get_running_loop().run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+    )
+    ^
+  File "C:\Users\LENOVO\AppData\Local\Python\pythoncore-3.14-64\Lib\concurrent\futures\thread.py", line 86, in run
+    result = ctx.run(self.task)
+  File "C:\Users\LENOVO\AppData\Local\Python\pythoncore-3.14-64\Lib\concurrent\futures\thread.py", line 73, in run
+    return fn(*args, **kwargs)
+  File "G:\Ai Software Companny\ai-dev-org\backend\.venv\Lib\site-packages\langchain_core\runnables\config.py", line 698, in wrapper
+    return func(*args, **kwargs)
+  File "G:\Ai Software Companny\ai-dev-org\backend\app\graph\workflow.py", line 60, in cto_node
+    out = run_cto(inp)
+  File "G:\Ai Software Companny\ai-dev-org\backend\app\agents\cto.py", line 47, in run_cto
+    result = call_llm(
+        prompt=prompt,
+    ...<3 lines>...
+        json_mode=True,
+    )
+  File "G:\Ai Software Companny\ai-dev-org\backend\app\router\llm.py", line 142, in call_llm
+    response = litellm.completion(**call_kwargs)
+  File "G:\Ai Software Companny\ai-dev-org\backend\.venv\Lib\site-packages\litellm\chat_completions\dispatch.py", line 103, in completion
+    return _DISPATCH.run(
+           ~~~~~~~~~~~~~^
+        args,
+        ^^^^^
+    ...<3 lines>...
+        native=call_hook,
+        ^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "G:\Ai Software Companny\ai-dev-org\backend\.venv\Lib\site-packages\litellm\rust_bridge\dispatch.py", line 81, in run
+    return python(*args, **kwargs)
+  File "G:\Ai Software Companny\ai-dev-org\backend\.venv\Lib\site-packages\litellm\utils.py", line 1951, in wrapper
+    raise e
+  File "G:\Ai Software Companny\ai-dev-org\backend\.venv\Lib\site-packages\litellm\utils.py", line 1792, in wrapper
+    result = original_function(*args, **kwargs)
+  File "G:\Ai Software Companny\ai-dev-org\backend\.venv\Lib\site-packages\litellm\main.py", line 6038, in completion
+    raise exception_type(
+          ~~~~~~~~~~~~~~^
+        model=model,
+        ^^^^^^^^^^^^
+    ...<3 lines>...
+        extra_kwargs=kwargs,
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "G:\Ai Software Companny\ai-dev-org\backend\.venv\Lib\site-packages\litellm\litellm_core_utils\exception_mapping_utils.py", line 2719, in exception_type
+    raise e  # it's already mapped
+    ^^^^^^^
+  File "G:\Ai Software Companny\ai-dev-org\backend\.venv\Lib\site-packages\litellm\litellm_core_utils\exception_mapping_utils.py", line 2530, in exception_type
+    _map_vertex_exception(
+    ~~~~~~~~~~~~~~~~~~~~~^
+        model=model,
+        ^^^^^^^^^^^^
+    ...<5 lines>...
+        extra_information=extra_information,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "G:\Ai Software Companny\ai-dev-org\backend\.venv\Lib\site-packages\litellm\litellm_core_utils\exception_mapping_utils.py", line 1237, in _map_vertex_exception
+    raise RateLimitError(
+    ...<11 lines>...
+    )
+litellm.exceptions.RateLimitError: litellm.RateLimitError: litellm.RateLimitError: geminiException - {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.8-flash\nPlease retry in 13h9m26.479743757s.",
+    "status": "RESOURCE_EXHAUSTED",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.Help",
+        "links": [
+          {
+            "description": "Learn more about Gemini API quotas",
+            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.QuotaFailure",
+        "violations": [
+          {
+            "quotaMetric": "generativelanguage.googleapis.com/generate_content_free_tier_requests",
+            "quotaId": "GenerateRequestsPerDayPerProjectPerModel-FreeTier",
+            "quotaDimensions": {
+              "location": "global",
+              "model": "gemini-3.8-flash"
+            },
+            "quotaValue": "20"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.RetryInfo",
+        "retryDelay": "47366s"
+      }
+    ]
+  }
+}
+
+During task with name 'cto' and id '2ef87beb-930e-bd71-04b7-5ccc93552db8'
+2026-10-04 16:20:33,828 ERROR app.graph.workflow WORKFLOW_FAIL project=test-manual
+Traceback (most recent call last):
+  File "G:\Ai Software Companny\ai-dev-org\backend\.venv\Lib\site-packages\litellm\llms\vertex_ai\gemini\vertex_and_google_ai_studio_gemini.py", line 3044, in completion
+    response: Final = client.post(url=url, headers=headers, json=data, logging_obj=logging_obj)
+                      ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\Ai Software Companny\ai-dev-org\backend\.venv\Lib\site-packages\litellm\llms\custom_httpx\http_handler.py", line 1523, in post
+    _raise_masked_sync_error(e, stream)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "G:\Ai Software Companny\ai-dev-org\backend\.venv\Lib\site-packages\litellm\llms\custom_httpx\http_handler.py", line 529, in _raise_masked_sync_error
+    raise MaskedHTTPStatusError(e, message=_text, text=_text) from None
+litellm.llms.custom_httpx.http_handler.MaskedHTTPStatusError: Client error '429 Too Many Requests' for url 'https://generativelanguage.googleapis.com/v1alpha/models/gemini-flash-latest:generateContent'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\Ai Software Companny\ai-dev-org\backend\.venv\Lib\site-packages\litellm\main.py", line 5963, in completion
+    response = _complete_vertex_ai_beta(_dispatch_ctx)
+  File "G:\Ai Software Companny\ai-dev-org\backend\.venv\Lib\site-packages\litellm\main.py", line 3705, in _complete_vertex_ai_beta
+    return vertex_chat_completion.completion(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        model=model,
+        ^^^^^^^^^^^^
+    ...<17 lines>...
+        extra_headers=headers,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "G:\Ai Software Companny\ai-dev-org\backend\.venv\Lib\site-packages\litellm\llms\vertex_ai\gemini\vertex_and_google_ai_studio_gemini.py", line 3048, in completion
+    raise VertexAIError(
+    ...<3 lines>...
+    )
+litellm.llms.vertex_ai.common_utils.VertexAIError: {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.8-flash\nPlease retry in 13h9m26.479743757s.",
+    "status": "RESOURCE_EXHAUSTED",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.Help",
+        "links": [
+          {
+            "description": "Learn more about Gemini API quotas",
+            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.QuotaFailure",
+        "violations": [
+          {
+            "quotaMetric": "generativelanguage.googleapis.com/generate_content_free_tier_requests",
+            "quotaId": "GenerateRequestsPerDayPerProjectPerModel-FreeTier",
+            "quotaDimensions": {
+              "location": "global",
+              "model": "gemini-3.8-flash"
+            },
+            "quotaValue": "20"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.RetryInfo",
+        "retryDelay": "47366s"
+      }
+    ]
+  }
+}
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\Ai Software Companny\ai-dev-org\backend\app\graph\workflow.py", line 292, in run_workflow
+    final = await app.ainvoke(initial, config=config)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\Ai Software Companny\ai-dev-org\backend\.venv\Lib\site-packages\langgraph\pregel\main.py", line 4090, in ainvoke
+    async for chunk in self.astream(
+    ...<30 lines>...
+            chunks.append(chunk)
+  File "G:\Ai Software Companny\ai-dev-org\backend\.venv\Lib\site-packages\langgraph\pregel\main.py", line 3440, in astream
+    async for _ in runner.atick(
+    ...<16 lines>...
+            yield o
+  File "G:\Ai Software Companny\ai-dev-org\backend\.venv\Lib\site-packages\langgraph\pregel\_runner.py", line 396, in atick
+    await arun_with_retry(
+    ...<15 lines>...
+    )
+  File "G:\Ai Software Companny\ai-dev-org\backend\.venv\Lib\site-packages\langgraph\pregel\_retry.py", line 744, in arun_with_retry
+    return await task.proc.ainvoke(task.input, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\Ai Software Companny\ai-dev-org\backend\.venv\Lib\site-packages\langgraph\_internal\_runnable.py", line 756, in ainvoke
+    input = await asyncio.create_task(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+        step.ainvoke(input, config, **kwargs), context=context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "G:\Ai Software Companny\ai-dev-org\backend\.venv\Lib\site-packages\langgraph\_internal\_runnable.py", line 522, in ainvoke
+    ret = await self.afunc(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\Ai Software Companny\ai-dev-org\backend\.venv\Lib\site-packages\langchain_core\runnables\config.py", line 707, in run_in_executor
+    return await asyncio.get_running_loop().run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+    )
+    ^
+  File "C:\Users\LENOVO\AppData\Local\Python\pythoncore-3.14-64\Lib\concurrent\futures\thread.py", line 86, in run
+    result = ctx.run(self.task)
+  File "C:\Users\LENOVO\AppData\Local\Python\pythoncore-3.14-64\Lib\concurrent\futures\thread.py", line 73, in run
+    return fn(*args, **kwargs)
+  File "G:\Ai Software Companny\ai-dev-org\backend\.venv\Lib\site-packages\langchain_core\runnables\config.py", line 698, in wrapper
+    return func(*args, **kwargs)
+  File "G:\Ai Software Companny\ai-dev-org\backend\app\graph\workflow.py", line 60, in cto_node
+    out = run_cto(inp)
+  File "G:\Ai Software Companny\ai-dev-org\backend\app\agents\cto.py", line 47, in run_cto
+    result = call_llm(
+        prompt=prompt,
+    ...<3 lines>...
+        json_mode=True,
+    )
+  File "G:\Ai Software Companny\ai-dev-org\backend\app\router\llm.py", line 142, in call_llm
+    response = litellm.completion(**call_kwargs)
+  File "G:\Ai Software Companny\ai-dev-org\backend\.venv\Lib\site-packages\litellm\chat_completions\dispatch.py", line 103, in completion
+    return _DISPATCH.run(
+           ~~~~~~~~~~~~~^
+        args,
+        ^^^^^
+    ...<3 lines>...
+        native=call_hook,
+        ^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "G:\Ai Software Companny\ai-dev-org\backend\.venv\Lib\site-packages\litellm\rust_bridge\dispatch.py", line 81, in run
+    return python(*args, **kwargs)
+  File "G:\Ai Software Companny\ai-dev-org\backend\.venv\Lib\site-packages\litellm\utils.py", line 1951, in wrapper
+    raise e
+  File "G:\Ai Software Companny\ai-dev-org\backend\.venv\Lib\site-packages\litellm\utils.py", line 1792, in wrapper
+    result = original_function(*args, **kwargs)
+  File "G:\Ai Software Companny\ai-dev-org\backend\.venv\Lib\site-packages\litellm\main.py", line 6038, in completion
+    raise exception_type(
+          ~~~~~~~~~~~~~~^
+        model=model,
+        ^^^^^^^^^^^^
+    ...<3 lines>...
+        extra_kwargs=kwargs,
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "G:\Ai Software Companny\ai-dev-org\backend\.venv\Lib\site-packages\litellm\litellm_core_utils\exception_mapping_utils.py", line 2719, in exception_type
+    raise e  # it's already mapped
+    ^^^^^^^
+  File "G:\Ai Software Companny\ai-dev-org\backend\.venv\Lib\site-packages\litellm\litellm_core_utils\exception_mapping_utils.py", line 2530, in exception_type
+    _map_vertex_exception(
+    ~~~~~~~~~~~~~~~~~~~~~^
+        model=model,
+        ^^^^^^^^^^^^
+    ...<5 lines>...
+        extra_information=extra_information,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "G:\Ai Software Companny\ai-dev-org\backend\.venv\Lib\site-packages\litellm\litellm_core_utils\exception_mapping_utils.py", line 1237, in _map_vertex_exception
+    raise RateLimitError(
+    ...<11 lines>...
+    )
+litellm.exceptions.RateLimitError: litellm.RateLimitError: litellm.RateLimitError: geminiException - {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.8-flash\nPlease retry in 13h9m26.479743757s.",
+    "status": "RESOURCE_EXHAUSTED",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.Help",
+        "links": [
+          {
+            "description": "Learn more about Gemini API quotas",
+            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.QuotaFailure",
+        "violations": [
+          {
+            "quotaMetric": "generativelanguage.googleapis.com/generate_content_free_tier_requests",
+            "quotaId": "GenerateRequestsPerDayPerProjectPerModel-FreeTier",
+            "quotaDimensions": {
+              "location": "global",
+              "model": "gemini-3.8-flash"
+            },
+            "quotaValue": "20"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.RetryInfo",
+        "retryDelay": "47366s"
+      }
+    ]
+  }
+}
+
+During task with name 'cto' and id '2ef87beb-930e-bd71-04b7-5ccc93552db8'
+2026-10-04 16:21:26,307 INFO app.graph.workflow WORKFLOW_START project=test-manual
+2026-10-04 16:21:26,307 INFO app.graph.workflow WORKFLOW_START project=test-manual
+2026-10-04 16:21:26,322 INFO app.graph.workflow NODE_START cto project=test-manual
+2026-10-04 16:21:26,322 INFO app.graph.workflow NODE_START cto project=test-manual
+2026-10-04 16:21:27,559 WARNING app.router.llm LLM call attempt 1 failed with retryable error (litellm.RateLimitError: litellm.RateLimitError: geminiException - {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.8-flash\nPlease retry in 13h8m32.810341419s.",
+    "status": "RESOURCE_EXHAUSTED",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.Help",
+        "links": [
+          {
+            "description": "Learn more about Gemini API quotas",
+            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.QuotaFailure",
+        "violations": [
+          {
+            "quotaMetric": "generativelanguage.googleapis.com/generate_content_free_tier_requests",
+            "quotaId": "GenerateRequestsPerDayPerProjectPerModel-FreeTier",
+            "quotaDimensions": {
+              "location": "global",
+              "model": "gemini-3.8-flash"
+            },
+            "quotaValue": "20"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.RetryInfo",
+        "retryDelay": "47312s"
+      }
+    ]
+  }
+}
+). Retrying in 1s...
+2026-10-04 16:21:30,809 INFO app.graph.workflow NODE_END cto project=test-manual
+2026-10-04 16:21:30,809 INFO app.graph.workflow NODE_END cto project=test-manual
+2026-10-04 16:21:30,812 INFO app.graph.workflow NODE_START pm project=test-manual
+2026-10-04 16:21:30,812 INFO app.graph.workflow NODE_START pm project=test-manual
+2026-10-04 16:21:31,247 WARNING app.router.llm LLM call attempt 1 failed with retryable error (litellm.RateLimitError: litellm.RateLimitError: geminiException - {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.8-flash\nPlease retry in 13h8m29.069056122s.",
+    "status": "RESOURCE_EXHAUSTED",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.Help",
+        "links": [
+          {
+            "description": "Learn more about Gemini API quotas",
+            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.QuotaFailure",
+        "violations": [
+          {
+            "quotaMetric": "generativelanguage.googleapis.com/generate_content_free_tier_requests",
+            "quotaId": "GenerateRequestsPerDayPerProjectPerModel-FreeTier",
+            "quotaDimensions": {
+              "location": "global",
+              "model": "gemini-3.8-flash"
+            },
+            "quotaValue": "20"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.RetryInfo",
+        "retryDelay": "47309s"
+      }
+    ]
+  }
+}
+). Retrying in 1s...
+2026-10-04 16:21:34,177 INFO app.graph.workflow NODE_END pm project=test-manual
+2026-10-04 16:21:34,177 INFO app.graph.workflow NODE_END pm project=test-manual
+2026-10-04 16:21:34,180 INFO app.graph.workflow NODE_START team_lead project=test-manual
+2026-10-04 16:21:34,180 INFO app.graph.workflow NODE_START team_lead project=test-manual
+2026-10-04 16:21:34,565 WARNING app.router.llm LLM call attempt 1 failed with retryable error (litellm.RateLimitError: litellm.RateLimitError: geminiException - {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.8-flash\nPlease retry in 13h8m25.745339677s.",
+    "status": "RESOURCE_EXHAUSTED",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.Help",
+        "links": [
+          {
+            "description": "Learn more about Gemini API quotas",
+            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.QuotaFailure",
+        "violations": [
+          {
+            "quotaMetric": "generativelanguage.googleapis.com/generate_content_free_tier_requests",
+            "quotaId": "GenerateRequestsPerDayPerProjectPerModel-FreeTier",
+            "quotaDimensions": {
+              "location": "global",
+              "model": "gemini-3.8-flash"
+            },
+            "quotaValue": "20"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.RetryInfo",
+        "retryDelay": "47305s"
+      }
+    ]
+  }
+}
+). Retrying in 1s...
+2026-10-04 16:21:36,967 INFO app.graph.workflow NODE_END team_lead project=test-manual
+2026-10-04 16:21:36,967 INFO app.graph.workflow NODE_END team_lead project=test-manual
+2026-10-04 16:21:36,971 INFO app.graph.workflow NODE_START developer project=test-manual
+2026-10-04 16:21:36,971 INFO app.graph.workflow NODE_START developer project=test-manual
+2026-10-04 16:21:37,387 WARNING app.router.llm LLM call attempt 1 failed with retryable error (litellm.RateLimitError: litellm.RateLimitError: geminiException - {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.8-flash\nPlease retry in 13h8m22.944816367s.",
+    "status": "RESOURCE_EXHAUSTED",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.Help",
+        "links": [
+          {
+            "description": "Learn more about Gemini API quotas",
+            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.QuotaFailure",
+        "violations": [
+          {
+            "quotaMetric": "generativelanguage.googleapis.com/generate_content_free_tier_requests",
+            "quotaId": "GenerateRequestsPerDayPerProjectPerModel-FreeTier",
+            "quotaDimensions": {
+              "location": "global",
+              "model": "gemini-3.8-flash"
+            },
+            "quotaValue": "20"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.RetryInfo",
+        "retryDelay": "47302s"
+      }
+    ]
+  }
+}
+). Retrying in 1s...
+2026-10-04 16:21:40,467 INFO app.graph.workflow NODE_END developer project=test-manual
+2026-10-04 16:21:40,467 INFO app.graph.workflow NODE_END developer project=test-manual
+2026-10-04 16:21:40,469 INFO app.graph.workflow NODE_START qa project=test-manual
+2026-10-04 16:21:40,469 INFO app.graph.workflow NODE_START qa project=test-manual
+2026-10-04 16:21:40,923 WARNING app.router.llm LLM call attempt 1 failed with retryable error (litellm.RateLimitError: litellm.RateLimitError: geminiException - {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.8-flash\nPlease retry in 13h8m19.383001099s.",
+    "status": "RESOURCE_EXHAUSTED",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.Help",
+        "links": [
+          {
+            "description": "Learn more about Gemini API quotas",
+            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.QuotaFailure",
+        "violations": [
+          {
+            "quotaMetric": "generativelanguage.googleapis.com/generate_content_free_tier_requests",
+            "quotaId": "GenerateRequestsPerDayPerProjectPerModel-FreeTier",
+            "quotaDimensions": {
+              "model": "gemini-3.8-flash",
+              "location": "global"
+            },
+            "quotaValue": "20"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.RetryInfo",
+        "retryDelay": "47299s"
+      }
+    ]
+  }
+}
+). Retrying in 1s...
+2026-10-04 16:21:43,570 INFO app.graph.workflow NODE_END qa project=test-manual
+2026-10-04 16:21:43,570 INFO app.graph.workflow NODE_END qa project=test-manual
+2026-10-04 16:21:43,597 INFO app.graph.workflow NODE_START ai_engineer project=test-manual
+2026-10-04 16:21:43,597 INFO app.graph.workflow NODE_START ai_engineer project=test-manual
+2026-10-04 16:21:43,992 WARNING app.router.llm LLM call attempt 1 failed with retryable error (litellm.RateLimitError: litellm.RateLimitError: geminiException - {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.8-flash\nPlease retry in 13h8m16.358680458s.",
+    "status": "RESOURCE_EXHAUSTED",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.Help",
+        "links": [
+          {
+            "description": "Learn more about Gemini API quotas",
+            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.QuotaFailure",
+        "violations": [
+          {
+            "quotaMetric": "generativelanguage.googleapis.com/generate_content_free_tier_requests",
+            "quotaId": "GenerateRequestsPerDayPerProjectPerModel-FreeTier",
+            "quotaDimensions": {
+              "location": "global",
+              "model": "gemini-3.8-flash"
+            },
+            "quotaValue": "20"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.RetryInfo",
+        "retryDelay": "47296s"
+      }
+    ]
+  }
+}
+). Retrying in 1s...
+2026-10-04 16:21:46,426 INFO app.graph.workflow NODE_END ai_engineer project=test-manual
+2026-10-04 16:21:46,426 INFO app.graph.workflow NODE_END ai_engineer project=test-manual
+2026-10-04 16:21:46,430 INFO app.graph.workflow WORKFLOW_END project=test-manual
+2026-10-04 16:21:46,430 INFO app.graph.workflow WORKFLOW_END project=test-manual
+2026-10-04 16:22:43,235 INFO app.graph.workflow WORKFLOW_START project=test-manual
+2026-10-04 16:22:43,235 INFO app.graph.workflow WORKFLOW_START project=test-manual
+2026-10-04 16:22:43,250 INFO app.graph.workflow NODE_START cto project=test-manual
+2026-10-04 16:22:43,250 INFO app.graph.workflow NODE_START cto project=test-manual
+2026-10-04 16:22:43,329 INFO LiteLLM 
+LiteLLM completion() model= gemini-flash-latest; provider = gemini
+2026-10-04 16:22:44,216 WARNING app.router.llm LLM call attempt 1 failed with retryable error (litellm.RateLimitError: litellm.RateLimitError: geminiException - {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.8-flash\nPlease retry in 13h7m16.109254744s.",
+    "status": "RESOURCE_EXHAUSTED",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.Help",
+        "links": [
+          {
+            "description": "Learn more about Gemini API quotas",
+            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.QuotaFailure",
+        "violations": [
+          {
+            "quotaMetric": "generativelanguage.googleapis.com/generate_content_free_tier_requests",
+            "quotaId": "GenerateRequestsPerDayPerProjectPerModel-FreeTier",
+            "quotaDimensions": {
+              "model": "gemini-3.8-flash",
+              "location": "global"
+            },
+            "quotaValue": "20"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.RetryInfo",
+        "retryDelay": "47236s"
+      }
+    ]
+  }
+}
+). Retrying in 1s...
+2026-10-04 16:22:45,219 INFO LiteLLM 
+LiteLLM completion() model= gemini-flash-lite-latest; provider = gemini
+2026-10-04 16:22:46,977 INFO LiteLLM Wrapper: Completed Call, calling success_handler
+2026-10-04 16:22:46,985 INFO app.graph.workflow NODE_END cto project=test-manual
+2026-10-04 16:22:46,985 INFO app.graph.workflow NODE_END cto project=test-manual
+2026-10-04 16:22:46,988 INFO app.graph.workflow NODE_START pm project=test-manual
+2026-10-04 16:22:46,988 INFO app.graph.workflow NODE_START pm project=test-manual
+2026-10-04 16:22:46,991 INFO LiteLLM 
+LiteLLM completion() model= gemini-flash-latest; provider = gemini
+2026-10-04 16:22:47,554 WARNING app.router.llm LLM call attempt 1 failed with retryable error (litellm.RateLimitError: litellm.RateLimitError: geminiException - {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.8-flash\nPlease retry in 13h7m12.862592896s.",
+    "status": "RESOURCE_EXHAUSTED",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.Help",
+        "links": [
+          {
+            "description": "Learn more about Gemini API quotas",
+            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.QuotaFailure",
+        "violations": [
+          {
+            "quotaMetric": "generativelanguage.googleapis.com/generate_content_free_tier_requests",
+            "quotaId": "GenerateRequestsPerDayPerProjectPerModel-FreeTier",
+            "quotaDimensions": {
+              "model": "gemini-3.8-flash",
+              "location": "global"
+            },
+            "quotaValue": "20"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.RetryInfo",
+        "retryDelay": "47232s"
+      }
+    ]
+  }
+}
+). Retrying in 1s...
+2026-10-04 16:22:48,558 INFO LiteLLM 
+LiteLLM completion() model= gemini-flash-lite-latest; provider = gemini
+2026-10-04 16:22:51,206 INFO LiteLLM Wrapper: Completed Call, calling success_handler
+2026-10-04 16:22:51,211 INFO app.graph.workflow NODE_END pm project=test-manual
+2026-10-04 16:22:51,211 INFO app.graph.workflow NODE_END pm project=test-manual
+2026-10-04 16:22:51,214 INFO app.graph.workflow NODE_START team_lead project=test-manual
+2026-10-04 16:22:51,214 INFO app.graph.workflow NODE_START team_lead project=test-manual
+2026-10-04 16:22:51,217 INFO LiteLLM 
+LiteLLM completion() model= gemini-flash-latest; provider = gemini
+2026-10-04 16:22:51,728 WARNING app.router.llm LLM call attempt 1 failed with retryable error (litellm.RateLimitError: litellm.RateLimitError: geminiException - {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.8-flash\nPlease retry in 13h7m8.699618498s.",
+    "status": "RESOURCE_EXHAUSTED",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.Help",
+        "links": [
+          {
+            "description": "Learn more about Gemini API quotas",
+            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.QuotaFailure",
+        "violations": [
+          {
+            "quotaMetric": "generativelanguage.googleapis.com/generate_content_free_tier_requests",
+            "quotaId": "GenerateRequestsPerDayPerProjectPerModel-FreeTier",
+            "quotaDimensions": {
+              "location": "global",
+              "model": "gemini-3.8-flash"
+            },
+            "quotaValue": "20"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.RetryInfo",
+        "retryDelay": "47228s"
+      }
+    ]
+  }
+}
+). Retrying in 1s...
+2026-10-04 16:22:52,730 INFO LiteLLM 
+LiteLLM completion() model= gemini-flash-lite-latest; provider = gemini
+2026-10-04 16:22:54,535 INFO LiteLLM Wrapper: Completed Call, calling success_handler
+2026-10-04 16:22:54,541 INFO app.graph.workflow NODE_END team_lead project=test-manual
+2026-10-04 16:22:54,541 INFO app.graph.workflow NODE_END team_lead project=test-manual
+2026-10-04 16:22:54,545 INFO app.graph.workflow NODE_START developer project=test-manual
+2026-10-04 16:22:54,545 INFO app.graph.workflow NODE_START developer project=test-manual
+2026-10-04 16:22:54,548 INFO LiteLLM 
+LiteLLM completion() model= gemini-flash-latest; provider = gemini
+2026-10-04 16:22:55,039 WARNING app.router.llm LLM call attempt 1 failed with retryable error (litellm.RateLimitError: litellm.RateLimitError: geminiException - {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.8-flash\nPlease retry in 13h7m5.298454026s.",
+    "status": "RESOURCE_EXHAUSTED",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.Help",
+        "links": [
+          {
+            "description": "Learn more about Gemini API quotas",
+            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.QuotaFailure",
+        "violations": [
+          {
+            "quotaMetric": "generativelanguage.googleapis.com/generate_content_free_tier_requests",
+            "quotaId": "GenerateRequestsPerDayPerProjectPerModel-FreeTier",
+            "quotaDimensions": {
+              "location": "global",
+              "model": "gemini-3.8-flash"
+            },
+            "quotaValue": "20"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.RetryInfo",
+        "retryDelay": "47225s"
+      }
+    ]
+  }
+}
+). Retrying in 1s...
+2026-10-04 16:22:56,042 INFO LiteLLM 
+LiteLLM completion() model= gemini-flash-lite-latest; provider = gemini
+2026-10-04 16:22:58,091 INFO LiteLLM Wrapper: Completed Call, calling success_handler
+2026-10-04 16:22:58,097 INFO app.graph.workflow NODE_END developer project=test-manual
+2026-10-04 16:22:58,097 INFO app.graph.workflow NODE_END developer project=test-manual
+2026-10-04 16:22:58,100 INFO app.graph.workflow NODE_START qa project=test-manual
+2026-10-04 16:22:58,100 INFO app.graph.workflow NODE_START qa project=test-manual
+2026-10-04 16:22:58,103 INFO LiteLLM 
+LiteLLM completion() model= gemini-flash-latest; provider = gemini
+2026-10-04 16:22:58,620 WARNING app.router.llm LLM call attempt 1 failed with retryable error (litellm.RateLimitError: litellm.RateLimitError: geminiException - {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.8-flash\nPlease retry in 13h7m1.78885936s.",
+    "status": "RESOURCE_EXHAUSTED",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.Help",
+        "links": [
+          {
+            "description": "Learn more about Gemini API quotas",
+            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.QuotaFailure",
+        "violations": [
+          {
+            "quotaMetric": "generativelanguage.googleapis.com/generate_content_free_tier_requests",
+            "quotaId": "GenerateRequestsPerDayPerProjectPerModel-FreeTier",
+            "quotaDimensions": {
+              "model": "gemini-3.8-flash",
+              "location": "global"
+            },
+            "quotaValue": "20"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.RetryInfo",
+        "retryDelay": "47221s"
+      }
+    ]
+  }
+}
+). Retrying in 1s...
+2026-10-04 16:22:59,623 INFO LiteLLM 
+LiteLLM completion() model= gemini-flash-lite-latest; provider = gemini
+2026-10-04 16:23:01,237 INFO LiteLLM Wrapper: Completed Call, calling success_handler
+2026-10-04 16:23:01,244 INFO app.graph.workflow NODE_END qa project=test-manual
+2026-10-04 16:23:01,244 INFO app.graph.workflow NODE_END qa project=test-manual
+2026-10-04 16:23:01,248 INFO app.graph.workflow NODE_START ai_engineer project=test-manual
+2026-10-04 16:23:01,248 INFO app.graph.workflow NODE_START ai_engineer project=test-manual
+2026-10-04 16:23:01,251 INFO LiteLLM 
+LiteLLM completion() model= gemini-flash-latest; provider = gemini
+2026-10-04 16:23:01,721 WARNING app.router.llm LLM call attempt 1 failed with retryable error (litellm.RateLimitError: litellm.RateLimitError: geminiException - {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.8-flash\nPlease retry in 13h6m58.596630779s.",
+    "status": "RESOURCE_EXHAUSTED",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.Help",
+        "links": [
+          {
+            "description": "Learn more about Gemini API quotas",
+            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.QuotaFailure",
+        "violations": [
+          {
+            "quotaMetric": "generativelanguage.googleapis.com/generate_content_free_tier_requests",
+            "quotaId": "GenerateRequestsPerDayPerProjectPerModel-FreeTier",
+            "quotaDimensions": {
+              "location": "global",
+              "model": "gemini-3.8-flash"
+            },
+            "quotaValue": "20"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.RetryInfo",
+        "retryDelay": "47218s"
+      }
+    ]
+  }
+}
+). Retrying in 1s...
+2026-10-04 16:23:02,723 INFO LiteLLM 
+LiteLLM completion() model= gemini-flash-lite-latest; provider = gemini
+2026-10-04 16:23:04,291 INFO LiteLLM Wrapper: Completed Call, calling success_handler
+2026-10-04 16:23:04,297 INFO app.graph.workflow NODE_END ai_engineer project=test-manual
+2026-10-04 16:23:04,297 INFO app.graph.workflow NODE_END ai_engineer project=test-manual
+2026-10-04 16:23:04,303 INFO app.graph.workflow WORKFLOW_END project=test-manual
+2026-10-04 16:23:04,303 INFO app.graph.workflow WORKFLOW_END project=test-manual
+2026-10-04 16:24:54,614 INFO app.graph.workflow WORKFLOW_START project=test-manual
+2026-10-04 16:24:54,614 INFO app.graph.workflow WORKFLOW_START project=test-manual
+2026-10-04 16:24:54,627 INFO app.graph.workflow NODE_START cto project=test-manual
+2026-10-04 16:24:54,627 INFO app.graph.workflow NODE_START cto project=test-manual
+2026-10-04 16:24:54,698 INFO LiteLLM 
+LiteLLM completion() model= gemini-flash-latest; provider = gemini
+2026-10-04 16:24:55,606 WARNING app.router.llm LLM call attempt 1 failed with retryable error (litellm.RateLimitError: litellm.RateLimitError: geminiException - {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.8-flash\nPlease retry in 13h5m4.749628251s.",
+    "status": "RESOURCE_EXHAUSTED",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.Help",
+        "links": [
+          {
+            "description": "Learn more about Gemini API quotas",
+            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.QuotaFailure",
+        "violations": [
+          {
+            "quotaMetric": "generativelanguage.googleapis.com/generate_content_free_tier_requests",
+            "quotaId": "GenerateRequestsPerDayPerProjectPerModel-FreeTier",
+            "quotaDimensions": {
+              "location": "global",
+              "model": "gemini-3.8-flash"
+            },
+            "quotaValue": "20"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.RetryInfo",
+        "retryDelay": "47104s"
+      }
+    ]
+  }
+}
+). Retrying in 1s...
+2026-10-04 16:24:56,608 INFO LiteLLM 
+LiteLLM completion() model= gemini-flash-lite-latest; provider = gemini
+2026-10-04 16:24:59,198 INFO LiteLLM Wrapper: Completed Call, calling success_handler
+2026-10-04 16:24:59,206 INFO app.graph.workflow NODE_END cto project=test-manual
+2026-10-04 16:24:59,206 INFO app.graph.workflow NODE_END cto project=test-manual
+2026-10-04 16:24:59,209 INFO app.graph.workflow NODE_START pm project=test-manual
+2026-10-04 16:24:59,209 INFO app.graph.workflow NODE_START pm project=test-manual
+2026-10-04 16:24:59,212 INFO LiteLLM 
+LiteLLM completion() model= gemini-flash-latest; provider = gemini
+2026-10-04 16:24:59,594 WARNING app.router.llm LLM call attempt 1 failed with retryable error (litellm.RateLimitError: litellm.RateLimitError: geminiException - {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.8-flash\nPlease retry in 13h5m0.709069362s.",
+    "status": "RESOURCE_EXHAUSTED",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.Help",
+        "links": [
+          {
+            "description": "Learn more about Gemini API quotas",
+            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.QuotaFailure",
+        "violations": [
+          {
+            "quotaMetric": "generativelanguage.googleapis.com/generate_content_free_tier_requests",
+            "quotaId": "GenerateRequestsPerDayPerProjectPerModel-FreeTier",
+            "quotaDimensions": {
+              "model": "gemini-3.8-flash",
+              "location": "global"
+            },
+            "quotaValue": "20"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.RetryInfo",
+        "retryDelay": "47100s"
+      }
+    ]
+  }
+}
+). Retrying in 1s...
+2026-10-04 16:25:00,597 INFO LiteLLM 
+LiteLLM completion() model= gemini-flash-lite-latest; provider = gemini
+2026-10-04 16:25:02,524 INFO LiteLLM Wrapper: Completed Call, calling success_handler
+2026-10-04 16:25:02,530 INFO app.graph.workflow NODE_END pm project=test-manual
+2026-10-04 16:25:02,530 INFO app.graph.workflow NODE_END pm project=test-manual
+2026-10-04 16:25:02,533 INFO app.graph.workflow NODE_START team_lead project=test-manual
+2026-10-04 16:25:02,533 INFO app.graph.workflow NODE_START team_lead project=test-manual
+2026-10-04 16:25:02,536 INFO LiteLLM 
+LiteLLM completion() model= gemini-flash-latest; provider = gemini
+2026-10-04 16:25:02,972 WARNING app.router.llm LLM call attempt 1 failed with retryable error (litellm.RateLimitError: litellm.RateLimitError: geminiException - {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.8-flash\nPlease retry in 13h4m57.352811079s.",
+    "status": "RESOURCE_EXHAUSTED",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.Help",
+        "links": [
+          {
+            "description": "Learn more about Gemini API quotas",
+            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.QuotaFailure",
+        "violations": [
+          {
+            "quotaMetric": "generativelanguage.googleapis.com/generate_content_free_tier_requests",
+            "quotaId": "GenerateRequestsPerDayPerProjectPerModel-FreeTier",
+            "quotaDimensions": {
+              "location": "global",
+              "model": "gemini-3.8-flash"
+            },
+            "quotaValue": "20"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.RetryInfo",
+        "retryDelay": "47097s"
+      }
+    ]
+  }
+}
+). Retrying in 1s...
+2026-10-04 16:25:03,974 INFO LiteLLM 
+LiteLLM completion() model= gemini-flash-lite-latest; provider = gemini
+2026-10-04 16:25:06,018 INFO LiteLLM Wrapper: Completed Call, calling success_handler
+2026-10-04 16:25:06,025 INFO app.graph.workflow NODE_END team_lead project=test-manual
+2026-10-04 16:25:06,025 INFO app.graph.workflow NODE_END team_lead project=test-manual
+2026-10-04 16:25:06,029 INFO app.graph.workflow NODE_START developer project=test-manual
+2026-10-04 16:25:06,029 INFO app.graph.workflow NODE_START developer project=test-manual
+2026-10-04 16:25:06,032 INFO LiteLLM 
+LiteLLM completion() model= gemini-flash-latest; provider = gemini
+2026-10-04 16:25:06,464 WARNING app.router.llm LLM call attempt 1 failed with retryable error (litellm.RateLimitError: litellm.RateLimitError: geminiException - {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.8-flash\nPlease retry in 13h4m53.847473594s.",
+    "status": "RESOURCE_EXHAUSTED",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.Help",
+        "links": [
+          {
+            "description": "Learn more about Gemini API quotas",
+            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.QuotaFailure",
+        "violations": [
+          {
+            "quotaMetric": "generativelanguage.googleapis.com/generate_content_free_tier_requests",
+            "quotaId": "GenerateRequestsPerDayPerProjectPerModel-FreeTier",
+            "quotaDimensions": {
+              "location": "global",
+              "model": "gemini-3.8-flash"
+            },
+            "quotaValue": "20"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.RetryInfo",
+        "retryDelay": "47093s"
+      }
+    ]
+  }
+}
+). Retrying in 1s...
+2026-10-04 16:25:07,467 INFO LiteLLM 
+LiteLLM completion() model= gemini-flash-lite-latest; provider = gemini
+2026-10-04 16:25:10,089 INFO LiteLLM Wrapper: Completed Call, calling success_handler
+2026-10-04 16:25:10,095 INFO app.graph.workflow NODE_END developer project=test-manual
+2026-10-04 16:25:10,095 INFO app.graph.workflow NODE_END developer project=test-manual
+2026-10-04 16:25:10,099 INFO app.graph.workflow NODE_START qa project=test-manual
+2026-10-04 16:25:10,099 INFO app.graph.workflow NODE_START qa project=test-manual
+2026-10-04 16:25:10,102 INFO LiteLLM 
+LiteLLM completion() model= gemini-flash-latest; provider = gemini
+2026-10-04 16:25:10,616 WARNING app.router.llm LLM call attempt 1 failed with retryable error (litellm.RateLimitError: litellm.RateLimitError: geminiException - {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.8-flash\nPlease retry in 13h4m49.827725713s.",
+    "status": "RESOURCE_EXHAUSTED",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.Help",
+        "links": [
+          {
+            "description": "Learn more about Gemini API quotas",
+            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.QuotaFailure",
+        "violations": [
+          {
+            "quotaMetric": "generativelanguage.googleapis.com/generate_content_free_tier_requests",
+            "quotaId": "GenerateRequestsPerDayPerProjectPerModel-FreeTier",
+            "quotaDimensions": {
+              "location": "global",
+              "model": "gemini-3.8-flash"
+            },
+            "quotaValue": "20"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.RetryInfo",
+        "retryDelay": "47089s"
+      }
+    ]
+  }
+}
+). Retrying in 1s...
+2026-10-04 16:25:11,618 INFO LiteLLM 
+LiteLLM completion() model= gemini-flash-lite-latest; provider = gemini
+2026-10-04 16:25:13,284 INFO LiteLLM Wrapper: Completed Call, calling success_handler
+2026-10-04 16:25:13,291 INFO app.graph.workflow NODE_END qa project=test-manual
+2026-10-04 16:25:13,291 INFO app.graph.workflow NODE_END qa project=test-manual
+2026-10-04 16:25:13,295 INFO app.graph.workflow NODE_START ai_engineer project=test-manual
+2026-10-04 16:25:13,295 INFO app.graph.workflow NODE_START ai_engineer project=test-manual
+2026-10-04 16:25:13,298 INFO LiteLLM 
+LiteLLM completion() model= gemini-flash-latest; provider = gemini
+2026-10-04 16:25:13,817 WARNING app.router.llm LLM call attempt 1 failed with retryable error (litellm.RateLimitError: litellm.RateLimitError: geminiException - {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.8-flash\nPlease retry in 13h4m46.561836341s.",
+    "status": "RESOURCE_EXHAUSTED",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.Help",
+        "links": [
+          {
+            "description": "Learn more about Gemini API quotas",
+            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.QuotaFailure",
+        "violations": [
+          {
+            "quotaMetric": "generativelanguage.googleapis.com/generate_content_free_tier_requests",
+            "quotaId": "GenerateRequestsPerDayPerProjectPerModel-FreeTier",
+            "quotaDimensions": {
+              "location": "global",
+              "model": "gemini-3.8-flash"
+            },
+            "quotaValue": "20"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.RetryInfo",
+        "retryDelay": "47086s"
+      }
+    ]
+  }
+}
+). Retrying in 1s...
+2026-10-04 16:25:14,819 INFO LiteLLM 
+LiteLLM completion() model= gemini-flash-lite-latest; provider = gemini
+2026-10-04 16:25:16,809 INFO LiteLLM Wrapper: Completed Call, calling success_handler
+2026-10-04 16:25:16,815 INFO app.graph.workflow NODE_END ai_engineer project=test-manual
+2026-10-04 16:25:16,815 INFO app.graph.workflow NODE_END ai_engineer project=test-manual
+2026-10-04 16:25:16,821 INFO app.graph.workflow WORKFLOW_END project=test-manual
+2026-10-04 16:25:16,821 INFO app.graph.workflow WORKFLOW_END project=test-manual
+2026-10-04 16:26:11,121 INFO app.graph.workflow WORKFLOW_START project=test-manual
+2026-10-04 16:26:11,121 INFO app.graph.workflow WORKFLOW_START project=test-manual
+2026-10-04 16:26:11,135 INFO app.graph.workflow NODE_START cto project=test-manual
+2026-10-04 16:26:11,135 INFO app.graph.workflow NODE_START cto project=test-manual
+2026-10-04 16:26:11,227 INFO LiteLLM 
+LiteLLM completion() model= gemini-flash-latest; provider = gemini
+2026-10-04 16:26:12,068 WARNING app.router.llm LLM call attempt 1 failed with retryable error (litellm.RateLimitError: litellm.RateLimitError: geminiException - {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.8-flash\nPlease retry in 13h3m48.291456431s.",
+    "status": "RESOURCE_EXHAUSTED",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.Help",
+        "links": [
+          {
+            "description": "Learn more about Gemini API quotas",
+            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.QuotaFailure",
+        "violations": [
+          {
+            "quotaMetric": "generativelanguage.googleapis.com/generate_content_free_tier_requests",
+            "quotaId": "GenerateRequestsPerDayPerProjectPerModel-FreeTier",
+            "quotaDimensions": {
+              "location": "global",
+              "model": "gemini-3.8-flash"
+            },
+            "quotaValue": "20"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.RetryInfo",
+        "retryDelay": "47028s"
+      }
+    ]
+  }
+}
+). Retrying in 1s...
+2026-10-04 16:26:13,071 INFO LiteLLM 
+LiteLLM completion() model= gemini-flash-lite-latest; provider = gemini
+2026-10-04 16:26:15,331 INFO LiteLLM Wrapper: Completed Call, calling success_handler
+2026-10-04 16:26:15,338 INFO app.graph.workflow NODE_END cto project=test-manual
+2026-10-04 16:26:15,338 INFO app.graph.workflow NODE_END cto project=test-manual
+2026-10-04 16:26:15,342 INFO app.graph.workflow NODE_START pm project=test-manual
+2026-10-04 16:26:15,342 INFO app.graph.workflow NODE_START pm project=test-manual
+2026-10-04 16:26:15,344 INFO LiteLLM 
+LiteLLM completion() model= gemini-flash-latest; provider = gemini
+2026-10-04 16:26:15,807 WARNING app.router.llm LLM call attempt 1 failed with retryable error (litellm.RateLimitError: litellm.RateLimitError: geminiException - {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.8-flash\nPlease retry in 13h3m44.523039411s.",
+    "status": "RESOURCE_EXHAUSTED",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.Help",
+        "links": [
+          {
+            "description": "Learn more about Gemini API quotas",
+            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.QuotaFailure",
+        "violations": [
+          {
+            "quotaMetric": "generativelanguage.googleapis.com/generate_content_free_tier_requests",
+            "quotaId": "GenerateRequestsPerDayPerProjectPerModel-FreeTier",
+            "quotaDimensions": {
+              "location": "global",
+              "model": "gemini-3.8-flash"
+            },
+            "quotaValue": "20"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.RetryInfo",
+        "retryDelay": "47024s"
+      }
+    ]
+  }
+}
+). Retrying in 1s...
+2026-10-04 16:26:16,809 INFO LiteLLM 
+LiteLLM completion() model= gemini-flash-lite-latest; provider = gemini
+2026-10-04 16:26:18,883 INFO LiteLLM Wrapper: Completed Call, calling success_handler
+2026-10-04 16:26:18,889 INFO app.graph.workflow NODE_END pm project=test-manual
+2026-10-04 16:26:18,889 INFO app.graph.workflow NODE_END pm project=test-manual
+2026-10-04 16:26:18,892 INFO app.graph.workflow NODE_START team_lead project=test-manual
+2026-10-04 16:26:18,892 INFO app.graph.workflow NODE_START team_lead project=test-manual
+2026-10-04 16:26:18,895 INFO LiteLLM 
+LiteLLM completion() model= gemini-flash-latest; provider = gemini
+2026-10-04 16:26:19,310 WARNING app.router.llm LLM call attempt 1 failed with retryable error (litellm.RateLimitError: litellm.RateLimitError: geminiException - {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.8-flash\nPlease retry in 13h3m40.994846296s.",
+    "status": "RESOURCE_EXHAUSTED",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.Help",
+        "links": [
+          {
+            "description": "Learn more about Gemini API quotas",
+            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.QuotaFailure",
+        "violations": [
+          {
+            "quotaMetric": "generativelanguage.googleapis.com/generate_content_free_tier_requests",
+            "quotaId": "GenerateRequestsPerDayPerProjectPerModel-FreeTier",
+            "quotaDimensions": {
+              "model": "gemini-3.8-flash",
+              "location": "global"
+            },
+            "quotaValue": "20"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.RetryInfo",
+        "retryDelay": "47020s"
+      }
+    ]
+  }
+}
+). Retrying in 1s...
+2026-10-04 16:26:20,312 INFO LiteLLM 
+LiteLLM completion() model= gemini-flash-lite-latest; provider = gemini
+2026-10-04 16:26:22,314 INFO LiteLLM Wrapper: Completed Call, calling success_handler
+2026-10-04 16:26:22,321 INFO app.graph.workflow NODE_END team_lead project=test-manual
+2026-10-04 16:26:22,321 INFO app.graph.workflow NODE_END team_lead project=test-manual
+2026-10-04 16:26:22,325 INFO app.graph.workflow NODE_START developer project=test-manual
+2026-10-04 16:26:22,325 INFO app.graph.workflow NODE_START developer project=test-manual
+2026-10-04 16:26:22,327 INFO LiteLLM 
+LiteLLM completion() model= gemini-flash-latest; provider = gemini
+2026-10-04 16:26:22,687 WARNING app.router.llm LLM call attempt 1 failed with retryable error (litellm.RateLimitError: litellm.RateLimitError: geminiException - {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.8-flash\nPlease retry in 13h3m37.620385183s.",
+    "status": "RESOURCE_EXHAUSTED",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.Help",
+        "links": [
+          {
+            "description": "Learn more about Gemini API quotas",
+            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.QuotaFailure",
+        "violations": [
+          {
+            "quotaMetric": "generativelanguage.googleapis.com/generate_content_free_tier_requests",
+            "quotaId": "GenerateRequestsPerDayPerProjectPerModel-FreeTier",
+            "quotaDimensions": {
+              "location": "global",
+              "model": "gemini-3.8-flash"
+            },
+            "quotaValue": "20"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.RetryInfo",
+        "retryDelay": "47017s"
+      }
+    ]
+  }
+}
+). Retrying in 1s...
+2026-10-04 16:26:23,689 INFO LiteLLM 
+LiteLLM completion() model= gemini-flash-lite-latest; provider = gemini
+2026-10-04 16:26:26,242 INFO LiteLLM Wrapper: Completed Call, calling success_handler
+2026-10-04 16:26:26,250 INFO app.graph.workflow NODE_END developer project=test-manual
+2026-10-04 16:26:26,250 INFO app.graph.workflow NODE_END developer project=test-manual
+2026-10-04 16:26:26,252 INFO app.graph.workflow NODE_START qa project=test-manual
+2026-10-04 16:26:26,252 INFO app.graph.workflow NODE_START qa project=test-manual
+2026-10-04 16:26:26,257 INFO LiteLLM 
+LiteLLM completion() model= gemini-flash-latest; provider = gemini
+2026-10-04 16:26:26,757 WARNING app.router.llm LLM call attempt 1 failed with retryable error (litellm.RateLimitError: litellm.RateLimitError: geminiException - {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.8-flash\nPlease retry in 13h3m33.598477132s.",
+    "status": "RESOURCE_EXHAUSTED",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.Help",
+        "links": [
+          {
+            "description": "Learn more about Gemini API quotas",
+            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.QuotaFailure",
+        "violations": [
+          {
+            "quotaMetric": "generativelanguage.googleapis.com/generate_content_free_tier_requests",
+            "quotaId": "GenerateRequestsPerDayPerProjectPerModel-FreeTier",
+            "quotaDimensions": {
+              "location": "global",
+              "model": "gemini-3.8-flash"
+            },
+            "quotaValue": "20"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.RetryInfo",
+        "retryDelay": "47013s"
+      }
+    ]
+  }
+}
+). Retrying in 1s...
+2026-10-04 16:26:27,758 INFO LiteLLM 
+LiteLLM completion() model= gemini-flash-lite-latest; provider = gemini
+2026-10-04 16:26:29,601 INFO LiteLLM Wrapper: Completed Call, calling success_handler
+2026-10-04 16:26:29,609 INFO app.graph.workflow NODE_END qa project=test-manual
+2026-10-04 16:26:29,609 INFO app.graph.workflow NODE_END qa project=test-manual
+2026-10-04 16:26:29,613 INFO app.graph.workflow NODE_START ai_engineer project=test-manual
+2026-10-04 16:26:29,613 INFO app.graph.workflow NODE_START ai_engineer project=test-manual
+2026-10-04 16:26:29,617 INFO LiteLLM 
+LiteLLM completion() model= gemini-flash-latest; provider = gemini
+2026-10-04 16:26:30,119 WARNING app.router.llm LLM call attempt 1 failed with retryable error (litellm.RateLimitError: litellm.RateLimitError: geminiException - {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.8-flash\nPlease retry in 13h3m30.26680315s.",
+    "status": "RESOURCE_EXHAUSTED",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.Help",
+        "links": [
+          {
+            "description": "Learn more about Gemini API quotas",
+            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.QuotaFailure",
+        "violations": [
+          {
+            "quotaMetric": "generativelanguage.googleapis.com/generate_content_free_tier_requests",
+            "quotaId": "GenerateRequestsPerDayPerProjectPerModel-FreeTier",
+            "quotaDimensions": {
+              "location": "global",
+              "model": "gemini-3.8-flash"
+            },
+            "quotaValue": "20"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.RetryInfo",
+        "retryDelay": "47010s"
+      }
+    ]
+  }
+}
+). Retrying in 1s...
+2026-10-04 16:26:31,145 INFO LiteLLM 
+LiteLLM completion() model= gemini-flash-lite-latest; provider = gemini
+2026-10-04 16:26:32,835 INFO LiteLLM Wrapper: Completed Call, calling success_handler
+2026-10-04 16:26:32,843 INFO app.graph.workflow NODE_END ai_engineer project=test-manual
+2026-10-04 16:26:32,843 INFO app.graph.workflow NODE_END ai_engineer project=test-manual
+2026-10-04 16:26:32,865 INFO app.graph.workflow WORKFLOW_END project=test-manual
+2026-10-04 16:26:32,865 INFO app.graph.workflow WORKFLOW_END project=test-manual
+2026-10-04 16:29:25,266 INFO app.graph.workflow HELLO FROM WORKFLOW LOGGER
+2026-10-04 16:29:25,266 INFO app.graph.workflow HELLO FROM WORKFLOW LOGGER
+2026-10-04 16:30:03,520 INFO app.graph.workflow DIRECT LOG CALL
+2026-10-04 16:30:03,520 INFO app.graph.workflow DIRECT LOG CALL
+2026-10-04 16:31:26,214 INFO app.graph.workflow WORKFLOW_START project=test-manual
+2026-10-04 16:31:26,214 INFO app.graph.workflow WORKFLOW_START project=test-manual
+2026-10-04 16:31:26,225 INFO app.graph.workflow NODE_START cto project=test-manual
+2026-10-04 16:31:26,225 INFO app.graph.workflow NODE_START cto project=test-manual
+2026-10-04 16:31:26,303 INFO LiteLLM 
+LiteLLM completion() model= gemini-flash-latest; provider = gemini
+2026-10-04 16:31:27,797 WARNING app.router.llm LLM call attempt 1 failed with retryable error (litellm.RateLimitError: litellm.RateLimitError: geminiException - {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.8-flash\nPlease retry in 12h58m32.527226022s.",
+    "status": "RESOURCE_EXHAUSTED",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.Help",
+        "links": [
+          {
+            "description": "Learn more about Gemini API quotas",
+            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.QuotaFailure",
+        "violations": [
+          {
+            "quotaMetric": "generativelanguage.googleapis.com/generate_content_free_tier_requests",
+            "quotaId": "GenerateRequestsPerDayPerProjectPerModel-FreeTier",
+            "quotaDimensions": {
+              "model": "gemini-3.8-flash",
+              "location": "global"
+            },
+            "quotaValue": "20"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.RetryInfo",
+        "retryDelay": "46712s"
+      }
+    ]
+  }
+}
+). Retrying in 1s...
+2026-10-04 16:31:28,800 INFO LiteLLM 
+LiteLLM completion() model= gemini-flash-lite-latest; provider = gemini
+2026-10-04 16:31:30,422 INFO LiteLLM Wrapper: Completed Call, calling success_handler
+2026-10-04 16:31:31,126 INFO app.graph.workflow NODE_END cto project=test-manual
+2026-10-04 16:31:31,126 INFO app.graph.workflow NODE_END cto project=test-manual
+2026-10-04 16:31:31,130 INFO app.graph.workflow NODE_START pm project=test-manual
+2026-10-04 16:31:31,130 INFO app.graph.workflow NODE_START pm project=test-manual
+2026-10-04 16:31:31,137 INFO LiteLLM 
+LiteLLM completion() model= gemini-flash-latest; provider = gemini
+2026-10-04 16:31:31,810 WARNING app.router.llm LLM call attempt 1 failed with retryable error (litellm.RateLimitError: litellm.RateLimitError: geminiException - {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.8-flash\nPlease retry in 12h58m28.521226533s.",
+    "status": "RESOURCE_EXHAUSTED",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.Help",
+        "links": [
+          {
+            "description": "Learn more about Gemini API quotas",
+            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.QuotaFailure",
+        "violations": [
+          {
+            "quotaMetric": "generativelanguage.googleapis.com/generate_content_free_tier_requests",
+            "quotaId": "GenerateRequestsPerDayPerProjectPerModel-FreeTier",
+            "quotaDimensions": {
+              "location": "global",
+              "model": "gemini-3.8-flash"
+            },
+            "quotaValue": "20"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.RetryInfo",
+        "retryDelay": "46708s"
+      }
+    ]
+  }
+}
+). Retrying in 1s...
+2026-10-04 16:31:32,813 INFO LiteLLM 
+LiteLLM completion() model= gemini-flash-lite-latest; provider = gemini
+2026-10-04 16:31:35,101 INFO LiteLLM Wrapper: Completed Call, calling success_handler
+2026-10-04 16:31:35,108 INFO app.graph.workflow NODE_END pm project=test-manual
+2026-10-04 16:31:35,108 INFO app.graph.workflow NODE_END pm project=test-manual
+2026-10-04 16:31:35,110 INFO app.graph.workflow NODE_START team_lead project=test-manual
+2026-10-04 16:31:35,110 INFO app.graph.workflow NODE_START team_lead project=test-manual
+2026-10-04 16:31:35,113 INFO LiteLLM 
+LiteLLM completion() model= gemini-flash-latest; provider = gemini
+2026-10-04 16:31:35,590 WARNING app.router.llm LLM call attempt 1 failed with retryable error (litellm.RateLimitError: litellm.RateLimitError: geminiException - {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.8-flash\nPlease retry in 12h58m24.778154591s.",
+    "status": "RESOURCE_EXHAUSTED",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.Help",
+        "links": [
+          {
+            "description": "Learn more about Gemini API quotas",
+            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.QuotaFailure",
+        "violations": [
+          {
+            "quotaMetric": "generativelanguage.googleapis.com/generate_content_free_tier_requests",
+            "quotaId": "GenerateRequestsPerDayPerProjectPerModel-FreeTier",
+            "quotaDimensions": {
+              "model": "gemini-3.8-flash",
+              "location": "global"
+            },
+            "quotaValue": "20"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.RetryInfo",
+        "retryDelay": "46704s"
+      }
+    ]
+  }
+}
+). Retrying in 1s...
+2026-10-04 16:31:36,592 INFO LiteLLM 
+LiteLLM completion() model= gemini-flash-lite-latest; provider = gemini
+2026-10-04 16:31:38,374 INFO LiteLLM Wrapper: Completed Call, calling success_handler
+2026-10-04 16:31:38,380 INFO app.graph.workflow NODE_END team_lead project=test-manual
+2026-10-04 16:31:38,380 INFO app.graph.workflow NODE_END team_lead project=test-manual
+2026-10-04 16:31:38,384 INFO app.graph.workflow NODE_START developer project=test-manual
+2026-10-04 16:31:38,384 INFO app.graph.workflow NODE_START developer project=test-manual
+2026-10-04 16:31:38,387 INFO LiteLLM 
+LiteLLM completion() model= gemini-flash-latest; provider = gemini
+2026-10-04 16:31:38,971 WARNING app.router.llm LLM call attempt 1 failed with retryable error (litellm.RateLimitError: litellm.RateLimitError: geminiException - {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.8-flash\nPlease retry in 12h58m21.434739312s.",
+    "status": "RESOURCE_EXHAUSTED",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.Help",
+        "links": [
+          {
+            "description": "Learn more about Gemini API quotas",
+            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.QuotaFailure",
+        "violations": [
+          {
+            "quotaMetric": "generativelanguage.googleapis.com/generate_content_free_tier_requests",
+            "quotaId": "GenerateRequestsPerDayPerProjectPerModel-FreeTier",
+            "quotaDimensions": {
+              "model": "gemini-3.8-flash",
+              "location": "global"
+            },
+            "quotaValue": "20"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.RetryInfo",
+        "retryDelay": "46701s"
+      }
+    ]
+  }
+}
+). Retrying in 1s...
+2026-10-04 16:31:39,974 INFO LiteLLM 
+LiteLLM completion() model= gemini-flash-lite-latest; provider = gemini
+2026-10-04 16:31:41,998 INFO LiteLLM Wrapper: Completed Call, calling success_handler
+2026-10-04 16:31:42,004 INFO app.graph.workflow NODE_END developer project=test-manual
+2026-10-04 16:31:42,004 INFO app.graph.workflow NODE_END developer project=test-manual
+2026-10-04 16:31:42,007 INFO app.graph.workflow NODE_START qa project=test-manual
+2026-10-04 16:31:42,007 INFO app.graph.workflow NODE_START qa project=test-manual
+2026-10-04 16:31:42,011 INFO LiteLLM 
+LiteLLM completion() model= gemini-flash-latest; provider = gemini
+2026-10-04 16:31:42,559 WARNING app.router.llm LLM call attempt 1 failed with retryable error (litellm.RateLimitError: litellm.RateLimitError: geminiException - {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.8-flash\nPlease retry in 12h58m17.801425064s.",
+    "status": "RESOURCE_EXHAUSTED",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.Help",
+        "links": [
+          {
+            "description": "Learn more about Gemini API quotas",
+            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.QuotaFailure",
+        "violations": [
+          {
+            "quotaMetric": "generativelanguage.googleapis.com/generate_content_free_tier_requests",
+            "quotaId": "GenerateRequestsPerDayPerProjectPerModel-FreeTier",
+            "quotaDimensions": {
+              "location": "global",
+              "model": "gemini-3.8-flash"
+            },
+            "quotaValue": "20"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.RetryInfo",
+        "retryDelay": "46697s"
+      }
+    ]
+  }
+}
+). Retrying in 1s...
+2026-10-04 16:31:43,561 INFO LiteLLM 
+LiteLLM completion() model= gemini-flash-lite-latest; provider = gemini
+2026-10-04 16:31:45,021 INFO LiteLLM Wrapper: Completed Call, calling success_handler
+2026-10-04 16:31:45,027 INFO app.graph.workflow NODE_END qa project=test-manual
+2026-10-04 16:31:45,027 INFO app.graph.workflow NODE_END qa project=test-manual
+2026-10-04 16:31:45,031 INFO app.graph.workflow NODE_START ai_engineer project=test-manual
+2026-10-04 16:31:45,031 INFO app.graph.workflow NODE_START ai_engineer project=test-manual
+2026-10-04 16:31:45,034 INFO LiteLLM 
+LiteLLM completion() model= gemini-flash-latest; provider = gemini
+2026-10-04 16:31:45,678 WARNING app.router.llm LLM call attempt 1 failed with retryable error (litellm.RateLimitError: litellm.RateLimitError: geminiException - {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.8-flash\nPlease retry in 12h58m14.723004219s.",
+    "status": "RESOURCE_EXHAUSTED",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.Help",
+        "links": [
+          {
+            "description": "Learn more about Gemini API quotas",
+            "url": "https://ai.google.dev/gemini-api/docs/rate-limits"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.QuotaFailure",
+        "violations": [
+          {
+            "quotaMetric": "generativelanguage.googleapis.com/generate_content_free_tier_requests",
+            "quotaId": "GenerateRequestsPerDayPerProjectPerModel-FreeTier",
+            "quotaDimensions": {
+              "model": "gemini-3.8-flash",
+              "location": "global"
+            },
+            "quotaValue": "20"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.RetryInfo",
+        "retryDelay": "46694s"
+      }
+    ]
+  }
+}
+). Retrying in 1s...
+2026-10-04 16:31:46,681 INFO LiteLLM 
+LiteLLM completion() model= gemini-flash-lite-latest; provider = gemini
+2026-10-04 16:31:48,524 INFO LiteLLM Wrapper: Completed Call, calling success_handler
+2026-10-04 16:31:48,529 INFO app.graph.workflow NODE_END ai_engineer project=test-manual
+2026-10-04 16:31:48,529 INFO app.graph.workflow NODE_END ai_engineer project=test-manual
+2026-10-04 16:31:48,534 INFO app.graph.workflow WORKFLOW_END project=test-manual
+2026-10-04 16:31:48,534 INFO app.graph.workflow WORKFLOW_END project=test-manual

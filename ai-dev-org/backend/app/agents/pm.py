@@ -4,7 +4,8 @@ Responsible for requirements decomposition, milestone scheduling,
 epic/feature definition, and granular task planning based on CTO architecture.
 """
 
-from pydantic import BaseModel, Field
+from typing import Any
+from pydantic import BaseModel, Field, field_validator
 
 from app.models.agent import AgentInput, AgentOutput
 from app.router.llm import call_llm
@@ -21,6 +22,7 @@ Rules:
 - Tasks must be concrete, actionable engineering items.
 - dependencies must be a list of task IDs.
 - priority must be high, medium, or low.
+- acceptance_criteria must be a list of strings.
 - assigned_role should be one of: team_lead, developer, uiux, qa, ai_engineer.
 - no markdown fences.
 """
@@ -35,6 +37,24 @@ class PMTask(BaseModel):
     priority: str = "medium"
     acceptance_criteria: list[str] = Field(default_factory=list)
     assigned_role: str = "developer"
+
+    @field_validator("acceptance_criteria", mode="before")
+    @classmethod
+    def _coerce_criteria(cls, v: Any) -> list[str]:
+        if isinstance(v, str):
+            return [v.strip()] if v.strip() else []
+        if isinstance(v, list):
+            return [str(x) for x in v]
+        return []
+
+    @field_validator("dependencies", mode="before")
+    @classmethod
+    def _coerce_deps(cls, v: Any) -> list[str]:
+        if isinstance(v, str):
+            return [v.strip()] if v.strip() else []
+        if isinstance(v, list):
+            return [str(x) for x in v]
+        return []
 
 
 class PMOutput(BaseModel):
@@ -63,6 +83,8 @@ def run_pm(inp: AgentInput) -> AgentOutput:
         complexity="any",
         system=SYSTEM_PROMPT,
         json_mode=True,
+        project_id=inp.project_id or "default",
+        agent="pm",
     )
 
     parsed = PMOutput.model_validate_json(result["text"])
