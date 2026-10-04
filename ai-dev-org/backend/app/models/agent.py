@@ -94,7 +94,7 @@ class AgentInput(BaseModel):
     context: dict[str, Any] = Field(default_factory=dict)
     constraints: list[str] = Field(default_factory=list)
     tools: list[str] = Field(default_factory=list)
-    expected_output: str
+    expected_output: str = ""
     acceptance_criteria: list[str] = Field(default_factory=list)
     token_budget: int = 4000
     model_policy: str = "reasoning/high"

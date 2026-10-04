@@ -32,7 +32,7 @@ def test_semantic_search_with_chroma(tmp_search_data: Path, monkeypatch: pytest.
 
     with patch("app.memory.vectors.search", return_value=mock_hits) as mock_search:
         results = search_tool.semantic_search(project_id, "asyncio queue", k=3)
-        mock_search.assert_called_once_with(project_id, query="asyncio queue", k=3)
+        mock_search.assert_called_once_with(project_id, "asyncio queue", k=3)
 
         assert len(results) == 1
         assert results[0]["kind"] == "architecture"

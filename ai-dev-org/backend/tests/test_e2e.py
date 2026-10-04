@@ -41,7 +41,7 @@ def canned_call_llm(
     system_str = (system or "").lower()
     prompt_str = prompt.lower()
 
-    if "cto" in system_str or "chief technology officer" in prompt_str:
+    if "chief technology officer" in system_str or "cto" in system_str:
         payload = {
             "brd": "Customer Wallet Business Requirements Document: Support user balance recharges, secure bank withdrawals, and PDF invoice generation.",
             "frd": "Customer Wallet Functional Requirements Document: Real-time balance calculations, transaction logging, responsive UI screens, and audit verification.",
@@ -52,7 +52,28 @@ def canned_call_llm(
             "open_questions": [],
             "recommended_docs": ["PCI-DSS local guidelines", "FastAPI dependency injection"],
         }
-    elif "project manager" in system_str or "pm" in system_str or "sprint decomposition" in prompt_str:
+    elif "team lead" in system_str:
+        payload = {
+            "technical_plan": [
+                {
+                    "task_id": "TASK-WALLET-01",
+                    "technical_steps": ["Create wallet models", "Implement atomic debit/credit", "Add test cases"],
+                    "files_to_touch": ["backend/app/models/wallet.py", "backend/app/api/wallet.py"],
+                    "ui_needed": False,
+                    "assigned_agent": "developer",
+                },
+                {
+                    "task_id": "TASK-WALLET-02",
+                    "technical_steps": ["Design wallet card", "Build transaction list", "Implement invoice drawer"],
+                    "files_to_touch": ["frontend/app/wallet/page.tsx", "frontend/components/wallet/recharge-modal.tsx"],
+                    "ui_needed": True,
+                    "assigned_agent": "uiux",
+                },
+            ],
+            "blockers": [],
+            "dependencies": ["TASK-WALLET-01"],
+        }
+    elif "project manager" in system_str or "pm" in system_str:
         payload = {
             "epics": ["Wallet Core", "Billing & Invoices", "Frontend Experience"],
             "features": ["Recharge", "Withdrawal", "Transaction History", "Invoice Export"],
@@ -79,28 +100,7 @@ def canned_call_llm(
             "milestones": ["M1: Backend API Complete", "M2: Responsive UI & Invoices Delivered"],
             "risks": ["Mobile viewport overflow on transaction tables"],
         }
-    elif "team lead" in system_str or "technical implementation planning" in prompt_str:
-        payload = {
-            "technical_plan": [
-                {
-                    "task_id": "TASK-WALLET-01",
-                    "technical_steps": ["Create wallet models", "Implement atomic debit/credit", "Add test cases"],
-                    "files_to_touch": ["backend/app/models/wallet.py", "backend/app/api/wallet.py"],
-                    "ui_needed": False,
-                    "assigned_agent": "developer",
-                },
-                {
-                    "task_id": "TASK-WALLET-02",
-                    "technical_steps": ["Design wallet card", "Build transaction list", "Implement invoice drawer"],
-                    "files_to_touch": ["frontend/app/wallet/page.tsx", "frontend/components/wallet/recharge-modal.tsx"],
-                    "ui_needed": True,
-                    "assigned_agent": "uiux",
-                },
-            ],
-            "blockers": [],
-            "dependencies": ["TASK-WALLET-01"],
-        }
-    elif "ui/ux" in system_str or "interface architecture" in prompt_str:
+    elif "ui/ux" in system_str or "designer" in system_str:
         payload = {
             "user_flows": ["User recharges wallet via modal", "User filters transaction history", "User downloads PDF invoice"],
             "screens": ["WalletOverviewScreen", "TransactionHistoryScreen", "InvoiceViewScreen"],
@@ -114,7 +114,7 @@ def canned_call_llm(
             "responsive_notes": ["Mobile-first flexbox wrapping for action buttons", "Horizontal scroll for invoice tables"],
             "wireframe_description": "Dark glassmorphism card layout with emerald balance badge and interactive transaction drawers.",
         }
-    elif "developer" in system_str or "source code" in prompt_str:
+    elif "developer" in system_str:
         payload = {
             "code_blocks": [
                 {
@@ -138,7 +138,7 @@ def canned_call_llm(
             "notes": "Implemented wallet domain models, transaction routes, and frontend dashboard components.",
             "assumptions": ["Local-first persistence using ./data store."],
         }
-    elif "qa" in system_str or "verification" in prompt_str:
+    elif "quality assurance" in system_str or "qa" in system_str:
         payload = {
             "status": "pass",
             "test_cases": [
@@ -153,7 +153,7 @@ def canned_call_llm(
             "evidence": "All 6 verification test cases executed and passed with 100% assertion success.",
             "retest_required": False,
         }
-    elif "ai engineer" in system_str or "model routing" in prompt_str:
+    elif "ai engineer" in system_str:
         payload = {
             "decision": "proceed",
             "model": "gemini/gemini-1.5-pro",

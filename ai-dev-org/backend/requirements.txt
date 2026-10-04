@@ -9,3 +9,5 @@ python-dotenv
 httpx
 tenacity
 chromadb
+pytest
+pytest-asyncio

@@ -51,16 +51,16 @@ logger = logging.getLogger(__name__)
 
 # Model map: (task_type, complexity) -> model
 MODEL_MAP: dict[tuple[str, str], str] = {
-    ("reasoning", "high"): "gemini/gemini-1.5-pro",
-    ("reasoning", "medium"): "gemini/gemini-1.5-pro",
-    ("reasoning", "low"): "gemini/gemini-1.5-flash",
-    ("coding", "high"): "gemini/gemini-1.5-pro",
-    ("coding", "low"): "gemini/gemini-2.0-flash",
-    ("doc", "any"): "gemini/gemini-1.5-flash",
-    ("routing", "any"): "gemini/gemini-1.5-flash",
+    ("reasoning", "high"): getattr(settings, "GEMINI_MODEL_PRO", "gemini/gemini-flash-latest"),
+    ("reasoning", "medium"): getattr(settings, "GEMINI_MODEL_PRO", "gemini/gemini-flash-latest"),
+    ("reasoning", "low"): getattr(settings, "GEMINI_MODEL_FLASH", "gemini/gemini-flash-latest"),
+    ("coding", "high"): getattr(settings, "GEMINI_MODEL_EXP", "gemini/gemini-flash-latest"),
+    ("coding", "low"): getattr(settings, "GEMINI_MODEL_EXP", "gemini/gemini-flash-latest"),
+    ("doc", "any"): getattr(settings, "GEMINI_MODEL_FLASH", "gemini/gemini-flash-latest"),
+    ("routing", "any"): getattr(settings, "GEMINI_MODEL_FLASH", "gemini/gemini-flash-latest"),
 }
 
-FALLBACK_MODEL = "gemini/gemini-1.5-flash"
+FALLBACK_MODEL = getattr(settings, "ROUTER_FALLBACK_MODEL", "gemini/gemini-flash-latest")
 
 
 def route_task(task_type: str, complexity: str) -> str:
