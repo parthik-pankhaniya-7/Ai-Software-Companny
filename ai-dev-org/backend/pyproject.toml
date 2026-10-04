@@ -1,0 +1,40 @@
+[project]
+name = "ai-dev-org-backend"
+version = "0.1.0"
+description = "Local-first multi-agent AI software development backend"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi",
+    "uvicorn[standard]",
+    "pydantic",
+    "pydantic-settings",
+    "langgraph",
+    "litellm",
+    "google-generativeai",
+    "python-dotenv",
+    "httpx",
+    "tenacity",
+    "chromadb",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "pytest-asyncio",
+    "ruff",
+    "mypy",
+]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+ignore_missing_imports = true
